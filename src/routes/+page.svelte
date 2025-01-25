@@ -1,2 +1,14 @@
-<h1>Welcome to CrasavaCoin App 3</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+// src/routes/tasks/+page.svelte
+
+<script>
+  import { tasks } from '$lib/tasks';
+</script>
+
+<h1>Task List</h1>
+<ul>
+  {#each tasks as task}
+    <li>
+      <a href={`/tasks/${task.slug}`}>{task.title}</a>
+    </li>
+  {/each}
+</ul>
