@@ -12,19 +12,27 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <pre id="tg-data" style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const tgData = {
-                initData: window.Telegram.WebApp.initData,
-                initDataUnsafe: window.Telegram.WebApp.initDataUnsafe
-            };
-            document.getElementById("tg-data").textContent = JSON.stringify(tgData, null, 2);
-        });
-    </script>
-    
     <div class="container">
+
+        <pre id="tg-data" style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const tgData = {
+                    initData: window.Telegram.WebApp.initData,
+                    
+                    initDataType: typeof window.Telegram.WebApp.initData,
+                    
+                    initDataUnsafe: window.Telegram.WebApp.initDataUnsafe,
+                    
+                    initDataUnsafeType: typeof window.Telegram.WebApp.initDataUnsafe
+                };
+                document.getElementById("tg-data").textContent = 
+                    "initData (" + tgData.initDataType + "):\n" + JSON.stringify(tgData.initData, null, 2) + "\n\n" +
+                    "initDataUnsafe (" + tgData.initDataUnsafeType + "):\n" + JSON.stringify(tgData.initDataUnsafe, null, 2);
+            });
+        </script>
+        
         <h1 class="title">Баланс</h1>
         <p class="current-status bronze">Бронзовый статус</p>
         <div class="coin coin-img">
