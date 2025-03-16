@@ -20,8 +20,8 @@
             document.addEventListener("DOMContentLoaded", function() {
                 const tgData = {
                     user_id: window.Telegram.WebApp.initDataUnsafe.user.id,
-                    user_name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
-                    user_name: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
+                    name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
+                    photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
                 };
                 document.getElementById("tg-data").textContent =  "user_id: " + tgData.user_id + "\n" + "user_name: " + tgData.user_name + "\n\n"
             });
