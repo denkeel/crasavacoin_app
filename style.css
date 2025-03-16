@@ -1,0 +1,151 @@
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 10px 20px;
+  padding-bottom: 27px;
+}
+
+.title {
+  margin: 10px 0 7px 0;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.current-status {
+  margin: 0px 0px 20px 0px;
+  font-size: 16px;
+  font-weight: 800;
+}
+.current-status.bronze {
+  color: #FF6D00;
+}
+
+.coin img {
+  width: 68%;
+}
+
+.coin-img {
+  filter: saturate(120%);
+}
+
+.balance {
+  margin: 10px;
+  font-size: 48px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 900;
+}
+.balance .balance-small {
+  font-size: 12px;
+}
+.balance .currency {
+  color: #FF6D00;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 800;
+}
+
+.leaderboard {
+  margin-top: 35px;
+  margin-bottom: 43px;
+}
+.leaderboard h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.leaderboard .leader-wrap {
+  display: flex;
+  justify-content: center;
+}
+.leaderboard .leader-wrap .leader {
+  width: 74%;
+  text-align: left;
+  margin-top: 10px;
+}
+.leaderboard .leader-wrap .leader .row {
+  margin-bottom: 10px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.leaderboard .leader-wrap .leader .row .user-photo {
+  margin-right: 10px;
+}
+.leaderboard .leader-wrap .leader .row .user-photo img {
+  height: 30px;
+  border-radius: 50%;
+}
+.leaderboard .leader-wrap .leader .row .number {
+  margin-right: 10px;
+  font-style: 16px;
+}
+.leaderboard .leader-wrap .leader .row .name-wrap {
+  margin-right: 70px;
+  display: flex;
+  flex-direction: column;
+}
+.leaderboard .leader-wrap .leader .row .name-wrap .name {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.leaderboard .leader-wrap .leader .row .name-wrap .user-status {
+  font-size: 10px;
+}
+.leaderboard .leader-wrap .leader .row .points {
+  margin-right: 5px;
+  font-family: "Pixelify Sans", sans-serif;
+}
+.leaderboard .leader-wrap .leader .row .coin-small {
+  margin: 0 0 -3px 0;
+}
+.leaderboard .leader-wrap .leader .row .coin-small img {
+  height: 18px;
+}
+.leaderboard .leader-wrap .leader .row .emerald {
+  color: green;
+}
+.leaderboard .leader-wrap .leader .row .gold {
+  color: gold;
+}
+.leaderboard .leader-wrap .leader .row .bronze {
+  color: #FF6D00;
+}
+
+.tasks {
+  text-align: left;
+}
+.tasks h2 {
+  font-size: 24px;
+  font-weight: 800;
+}
+.tasks .task-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.tasks .task {
+  box-shadow: 0px 11px 20px 0px rgba(255, 117, 1, 0.4);
+  background: linear-gradient(159deg, rgb(255, 187, 1) 15%, rgb(255, 117, 1) 100%);
+  color: #fff;
+  padding: 22px 7px;
+  border-radius: 18px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+.tasks .task .logo {
+  margin-bottom: 10px;
+}
+.tasks .task .logo img {
+  width: 60%;
+}/*# sourceMappingURL=style.css.map */
