@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Баланс</title>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <link rel="stylesheet" href="style.css">
@@ -23,7 +23,7 @@
                     name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
                     photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
                 };
-                document.getElementById("tg-data").textContent =  "user_id: " + tgData.user_id + "\n" + "user_name: " + tgData.name + "\n\n"
+                document.getElementById("tg-data").textContent =  "user_id: " + tgData.user_id + "\n" + "user_name: " + tgData.name
             });
         </script>
         
@@ -62,6 +62,18 @@
                         <img src="card_trash.png" alt="Лого">
                     </div>
                     <div class="text">Заменить мусорный пакет</div>
+                </div>
+                <div class="task">
+                    <div class="logo">
+                        <img src="card_dishwasher.png" alt="Лого">
+                    </div>
+                    <div class="text">Разгрузить посудомойку</div>
+                </div>
+                <div class="task">
+                    <div class="logo">
+                        <img src="card_trash_outside.png" alt="Лого">
+                    </div>
+                    <div class="text">Вынести мусор на улицу</div>
                 </div>
             </div>
         </div>
