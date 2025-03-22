@@ -95,6 +95,10 @@ body {
 .leaderboard .leaders-wrap .leaders .row .number {
   margin-right: 10px;
   font-style: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -6px;
 }
 .leaderboard .leaders-wrap .leaders .row .name-wrap {
   margin-right: 70px;
