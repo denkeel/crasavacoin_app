@@ -157,7 +157,7 @@ body {
   font-weight: 500;
   transition: scale 0.3s ease;
 }
-.tasks .task:active {
+.tasks .task:hover, .tasks .task:active {
   scale: 105%;
 }
 .tasks .task .logo {
