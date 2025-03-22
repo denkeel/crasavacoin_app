@@ -30,7 +30,7 @@
             <h2>Топ смешарики</h2>
             <div class="leaders-wrap">
                 <div class="leaders">
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="right">
                             <div class="number"><span>1.</span></div>
                             <div class="user-photo">
@@ -65,7 +65,7 @@
                                 <img src="0001.avif" alt="Монета">
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -152,38 +152,40 @@
 
                 balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
 
-                const leadersDiv = document.querySelector('.leaders');
+                const leadersContainer = document.querySelector('.leaders');
 
                 topUsers.forEach(user => {
-                    const rowDiv = document.createElement('div');
-                    rowDiv.classList.add('row');
+                    const row = document.createElement('div');
+                    row.classList.add('row');
 
                     const rightDiv = document.createElement('div');
                     rightDiv.classList.add('right');
 
                     const numberDiv = document.createElement('div');
                     numberDiv.classList.add('number');
-                    numberDiv.innerHTML = `<span>${user.index}.</span>`;
-                    rightDiv.appendChild(numberDiv);
+                    numberDiv.textContent = `${user.index}.`;
 
                     const userPhotoDiv = document.createElement('div');
                     userPhotoDiv.classList.add('user-photo');
-                    userPhotoDiv.innerHTML = `<img src="${user.user_photo}" alt="">`;
-                    rightDiv.appendChild(userPhotoDiv);
+                    const userPhotoImg = document.createElement('img');
+                    userPhotoImg.src = user.user_photo;
+                    userPhotoImg.alt = '';
+                    userPhotoDiv.appendChild(userPhotoImg);
 
                     const nameWrapDiv = document.createElement('div');
                     nameWrapDiv.classList.add('name-wrap');
-
                     const nameDiv = document.createElement('div');
                     nameDiv.classList.add('name');
                     nameDiv.textContent = user.user_name;
+                    const userStatusDiv = document.createElement('div');
+                    userStatusDiv.classList.add('user-status', 'bronze');
+                    userStatusDiv.textContent = 'Бронзовый статус';
+
                     nameWrapDiv.appendChild(nameDiv);
+                    nameWrapDiv.appendChild(userStatusDiv);
 
-                    const statusDiv = document.createElement('div');
-                    statusDiv.classList.add('user-status', 'emerald');
-                    statusDiv.textContent = 'Изумрудный статус';
-                    nameWrapDiv.appendChild(statusDiv);
-
+                    rightDiv.appendChild(numberDiv);
+                    rightDiv.appendChild(userPhotoDiv);
                     rightDiv.appendChild(nameWrapDiv);
 
                     const leftDiv = document.createElement('div');
@@ -192,17 +194,21 @@
                     const pointsDiv = document.createElement('div');
                     pointsDiv.classList.add('points');
                     pointsDiv.textContent = user.sum_coins;
-                    leftDiv.appendChild(pointsDiv);
 
                     const coinSmallDiv = document.createElement('div');
                     coinSmallDiv.classList.add('coin-small', 'coin-img');
-                    coinSmallDiv.innerHTML = '<img src="0001.avif" alt="Монета">';
+                    const coinImg = document.createElement('img');
+                    coinImg.src = '0001.avif';
+                    coinImg.alt = 'Монета';
+                    coinSmallDiv.appendChild(coinImg);
+
+                    leftDiv.appendChild(pointsDiv);
                     leftDiv.appendChild(coinSmallDiv);
 
-                    rowDiv.appendChild(rightDiv);
-                    rowDiv.appendChild(leftDiv);
+                    row.appendChild(rightDiv);
+                    row.appendChild(leftDiv);
 
-                    leadersDiv.appendChild(rowDiv);
+                    leadersContainer.appendChild(row);
                 });
 
                 // document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2) + '\n ' + JSON.stringify(userCoins, null, 2)
