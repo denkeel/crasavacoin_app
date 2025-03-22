@@ -47,6 +47,7 @@ body {
   font-size: 12px;
 }
 .balance .currency {
+  font-size: 42px;
   color: #FF6D00;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
@@ -156,7 +157,7 @@ body {
   font-weight: 500;
   transition: scale 0.3s ease;
 }
-.tasks .task:hover {
+.tasks .task:active {
   scale: 105%;
 }
 .tasks .task .logo {
