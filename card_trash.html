@@ -23,5 +23,19 @@
         <h1 class="title">Заменить мусорный пакет</h1>
 
         <div class="medium">Полностью заменить мусорный пакет, и поставить новый</div>
-            
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backButton = window.Telegram.WebApp.BackButton;
+            backButton.show()
+            backButton.onClick(() => {
+                window.history.back();
+
+                if (window.history.length <= 1) {
+                    backButton.hide();
+                }
+            });
+        }
+    </script>
+
 </html>
