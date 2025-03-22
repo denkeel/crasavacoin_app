@@ -4,10 +4,22 @@ $text-light: #fff
 $border-radius: 18px
 $h1: 26pxs
 
+.container_card
+    @extend .container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    .medium
+        margin-top: 20px
+        width: 70%
+        text-align: center
+    margin: auto 0
+
 body
     font-family: "M PLUS Rounded 1c", sans-serif
     display: flex
-    justify-content: center
+    
     align-items: center
     padding: 0
     margin: 0
@@ -127,6 +139,7 @@ body
         gap: 10px
         margin-top: 10px
     .task
+        text-decoration: none
         box-shadow: 0px 11px 20px 0px rgba(255,117,1,0.4)
         background: linear-gradient(159deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
         color: $text-light
@@ -137,7 +150,7 @@ body
         font-weight: 500
         transition: scale 0.3s ease
         &:hover, &:active
-            scale: 105%
+            scale: 95%
         .logo
             margin-bottom: 10px
             img
