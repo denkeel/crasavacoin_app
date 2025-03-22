@@ -17,13 +17,19 @@
         <pre id="tg-data" style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {  
+                fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
+                .then(response => response.json())
+                .then(data => {
+                    all_data = data;
+                })
+                .catch(error => console.error('Error fetching data:', error));
                 const tgData = {
                     user_id: window.Telegram.WebApp.initDataUnsafe.user.id,
                     name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
                     photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
                 };
-                document.getElementById("tg-data").textContent =  "user_id: " + tgData.user_id + "\n" + "user_name: " + tgData.name + "\n\n" + JSON.stringify(window.Telegram.WebApp.initDataUnsafe, null, 2)
+                document.getElementById("tg-data").textContent =  all_data + "user_id: " + tgData.user_id + "\n" + "user_name: " + tgData.name + "\n\n" + JSON.stringify(window.Telegram.WebApp.initDataUnsafe, null, 2)
             });
         </script>
         
