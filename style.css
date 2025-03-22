@@ -154,6 +154,10 @@ body {
   font-size: 14px;
   text-align: center;
   font-weight: 500;
+  transition: scale 0.3s ease;
+}
+.tasks .task:hover {
+  scale: 105%;
 }
 .tasks .task .logo {
   margin-bottom: 10px;
