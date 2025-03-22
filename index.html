@@ -43,7 +43,7 @@
                             userCoins[userId] += task.coins;
                         }
 
-                        if (!(current_user.id in userCoins)) {
+                        if (!(current_user.id.toString() in users)) {
                             fetch(`https://crasavacoin-db.firebaseio.com/users/${current_user.id}.json`, {
                                 method: 'POST',
                                 body: JSON.stringify({
@@ -55,7 +55,9 @@
                                 }
                             })
                                 .then(response => response.json())
-                                .then(data => window.location.reload())
+                                .then(data => {
+                                    window.location.reload();
+                                })
                         }
 
                         const topUsers = Object.entries(userCoins)
