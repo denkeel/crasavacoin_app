@@ -18,8 +18,8 @@
 <body>
     <div class="container">
 
-        <pre id="tg-data"
-            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
+        <!-- <pre id="tg-data"
+            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre> -->
 
         <script>
             function sumCoinsForUser(userId, data) {
@@ -41,7 +41,7 @@
                 fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
                     .then(response => response.json())
                     .then(data => {
-                        document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(data, null, 2)
+                        // document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(data, null, 2)
                         
                         const balanceElement = document.querySelector('.balance');
                         balanceElement.innerHTML = `${sumCoinsForUser(current_user.id, data)},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
