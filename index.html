@@ -134,9 +134,6 @@
                 const leaderContainer = document.querySelector('.leader');
 
                 topUsers.forEach(user => {
-                    const leaderDiv = document.createElement('div');
-                    leaderDiv.classList.add('leader');
-
                     const rowDiv = document.createElement('div');
                     rowDiv.classList.add('row');
 
@@ -179,8 +176,7 @@
                     rowDiv.appendChild(pointsDiv);
                     rowDiv.appendChild(coinDiv);
 
-                    leaderDiv.appendChild(rowDiv);
-                    leaderContainer.appendChild(leaderDiv);
+                    leaderContainer.appendChild(rowDiv);
                 });
 
                 document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2) + '\n ' + JSON.stringify(userCoins, null, 2)
