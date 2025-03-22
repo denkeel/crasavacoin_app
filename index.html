@@ -28,20 +28,42 @@
         <p class="balance">0,<span class="balance-small">00</span> <span class="currency">CRC</span></p>
         <div class="leaderboard">
             <h2>Топ смешарики</h2>
-            <div class="leader-wrap">
-                <div class="leader">
+            <div class="leaders-wrap">
+                <div class="leaders">
                     <!-- <div class="row">
-                        <div class="number">1.</div>
-                        <div class="user-photo">
-                            <img src="user1.jpg" alt="">
+                        <div class="right">
+                            <div class="number">1.</div>
+                            <div class="user-photo">
+                                <img src="user1.jpg" alt="">
+                            </div>
+                            <div class="name-wrap">
+                                <div class="name">Магоsdafsdfasdfasdfмед</div>
+                                <div class="user-status emerald">Изумрудный статус</div>
+                            </div>
                         </div>
-                        <div class="name-wrap">
-                            <div class="name">Магомед</div>
-                            <div class="user-status emerald">Изумрудный статус</div>
+                        <div class="left">
+                            <div class="points">110</div>
+                            <div class="coin-small coin-img">
+                                <img src="0001.avif" alt="Монета">
+                            </div>
                         </div>
-                        <div class="points">110</div>
-                        <div class="coin-small coin-img">
-                            <img src="0001.avif" alt="Монета">
+                    </div>
+                    <div class="row">
+                        <div class="right">
+                            <div class="number">1.</div>
+                            <div class="user-photo">
+                                <img src="user1.jpg" alt="">
+                            </div>
+                            <div class="name-wrap">
+                                <div class="name">Мага</div>
+                                <div class="user-status emerald">Изумрудный статус</div>
+                            </div>
+                        </div>
+                        <div class="left">
+                            <div class="points">10</div>
+                            <div class="coin-small coin-img">
+                                <img src="0001.avif" alt="Монета">
+                            </div>
                         </div>
                     </div> -->
                 </div>
@@ -130,11 +152,14 @@
 
                 balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
 
-                const leaderContainer = document.querySelector('.leader');
+                const leadersContainer = document.querySelector('.leaders');
 
                 topUsers.forEach(user => {
-                    const rowDiv = document.createElement('div');
-                    rowDiv.classList.add('row');
+                    const row = document.createElement('div');
+                    row.classList.add('row');
+
+                    const rightDiv = document.createElement('div');
+                    rightDiv.classList.add('right');
 
                     const numberDiv = document.createElement('div');
                     numberDiv.classList.add('number');
@@ -142,40 +167,48 @@
 
                     const userPhotoDiv = document.createElement('div');
                     userPhotoDiv.classList.add('user-photo');
-                    const img = document.createElement('img');
-                    img.src = user.user_photo;
-                    img.alt = user.user_name;
-                    userPhotoDiv.appendChild(img);
+                    const userPhotoImg = document.createElement('img');
+                    userPhotoImg.src = user.user_photo;
+                    userPhotoImg.alt = '';
+                    userPhotoDiv.appendChild(userPhotoImg);
 
                     const nameWrapDiv = document.createElement('div');
                     nameWrapDiv.classList.add('name-wrap');
                     const nameDiv = document.createElement('div');
                     nameDiv.classList.add('name');
                     nameDiv.textContent = user.user_name;
-                    const statusDiv = document.createElement('div');
-                    statusDiv.classList.add('user-status', 'emerald');
-                    statusDiv.textContent = 'Изумрудный статус';
+                    const userStatusDiv = document.createElement('div');
+                    userStatusDiv.classList.add('user-status', 'emerald');
+                    userStatusDiv.textContent = 'Изумрудный статус';
+
                     nameWrapDiv.appendChild(nameDiv);
-                    nameWrapDiv.appendChild(statusDiv);
+                    nameWrapDiv.appendChild(userStatusDiv);
+
+                    rightDiv.appendChild(numberDiv);
+                    rightDiv.appendChild(userPhotoDiv);
+                    rightDiv.appendChild(nameWrapDiv);
+
+                    const leftDiv = document.createElement('div');
+                    leftDiv.classList.add('left');
 
                     const pointsDiv = document.createElement('div');
                     pointsDiv.classList.add('points');
                     pointsDiv.textContent = user.sum_coins;
 
-                    const coinDiv = document.createElement('div');
-                    coinDiv.classList.add('coin-small', 'coin-img');
+                    const coinSmallDiv = document.createElement('div');
+                    coinSmallDiv.classList.add('coin-small', 'coin-img');
                     const coinImg = document.createElement('img');
                     coinImg.src = '0001.avif';
                     coinImg.alt = 'Монета';
-                    coinDiv.appendChild(coinImg);
+                    coinSmallDiv.appendChild(coinImg);
 
-                    rowDiv.appendChild(numberDiv);
-                    rowDiv.appendChild(userPhotoDiv);
-                    rowDiv.appendChild(nameWrapDiv);
-                    rowDiv.appendChild(pointsDiv);
-                    rowDiv.appendChild(coinDiv);
+                    leftDiv.appendChild(pointsDiv);
+                    leftDiv.appendChild(coinSmallDiv);
 
-                    leaderContainer.appendChild(rowDiv);
+                    row.appendChild(rightDiv);
+                    row.appendChild(leftDiv);
+
+                    leadersContainer.appendChild(row);
                 });
 
                 // document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2) + '\n ' + JSON.stringify(userCoins, null, 2)

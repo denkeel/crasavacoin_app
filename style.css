@@ -60,63 +60,71 @@ body {
   font-size: 16px;
   font-weight: 600;
 }
-.leaderboard .leader-wrap {
+.leaderboard .leaders-wrap {
   display: flex;
   justify-content: center;
 }
-.leaderboard .leader-wrap .leader {
+.leaderboard .leaders-wrap .leaders {
   width: 74%;
   text-align: left;
   margin-top: 10px;
 }
-.leaderboard .leader-wrap .leader .row {
+.leaderboard .leaders-wrap .leaders .row {
   margin-bottom: 10px;
   font-weight: 800;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
-.leaderboard .leader-wrap .leader .row .user-photo {
+.leaderboard .leaders-wrap .leaders .row .user-photo {
   margin-right: 10px;
 }
-.leaderboard .leader-wrap .leader .row .user-photo img {
+.leaderboard .leaders-wrap .leaders .row .user-photo img {
   height: 30px;
   border-radius: 50%;
 }
-.leaderboard .leader-wrap .leader .row .number {
+.leaderboard .leaders-wrap .leaders .row .right {
+  display: flex;
+  flex-direction: columns;
+}
+.leaderboard .leaders-wrap .leaders .row .left {
+  display: flex;
+  flex-direction: columns;
+}
+.leaderboard .leaders-wrap .leaders .row .number {
   margin-right: 10px;
   font-style: 16px;
 }
-.leaderboard .leader-wrap .leader .row .name-wrap {
+.leaderboard .leaders-wrap .leaders .row .name-wrap {
   margin-right: 70px;
   display: flex;
   flex-direction: column;
 }
-.leaderboard .leader-wrap .leader .row .name-wrap .name {
+.leaderboard .leaders-wrap .leaders .row .name-wrap .name {
   font-size: 16px;
   margin-bottom: 2px;
 }
-.leaderboard .leader-wrap .leader .row .name-wrap .user-status {
+.leaderboard .leaders-wrap .leaders .row .name-wrap .user-status {
   font-size: 10px;
 }
-.leaderboard .leader-wrap .leader .row .points {
+.leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
   font-family: "Pixelify Sans", sans-serif;
 }
-.leaderboard .leader-wrap .leader .row .coin-small {
+.leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
 }
-.leaderboard .leader-wrap .leader .row .coin-small img {
+.leaderboard .leaders-wrap .leaders .row .coin-small img {
   height: 18px;
 }
-.leaderboard .leader-wrap .leader .row .emerald {
+.leaderboard .leaders-wrap .leaders .row .emerald {
   color: green;
 }
-.leaderboard .leader-wrap .leader .row .gold {
+.leaderboard .leaders-wrap .leaders .row .gold {
   color: gold;
 }
-.leaderboard .leader-wrap .leader .row .bronze {
+.leaderboard .leaders-wrap .leaders .row .bronze {
   color: #FF6D00;
 }
 
