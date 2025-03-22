@@ -96,21 +96,21 @@
                     userCoins[userId] += task.coins;
                 }
 
-                if (!(current_user.id.toString() in userCoins)) {
-                    fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            photo_url: current_user.photo_url,
-                            user_name: current_user.user_name
-                        }),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                        .then(data => {
-                            window.location.reload();
-                        })
-                }
+                // if (!(current_user.id.toString() in userCoins)) {
+                //     fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
+                //         method: 'POST',
+                //         body: JSON.stringify({
+                //             photo_url: current_user.photo_url,
+                //             user_name: current_user.user_name
+                //         }),
+                //         headers: {
+                //             'Content-Type': 'application/json'
+                //         }
+                //     })
+                //         .then(data => {
+                //             window.location.reload();
+                //         })
+                // }
 
                 const topUsers = Object.entries(userCoins)
                     .map(([userId, coins]) => {
@@ -133,7 +133,7 @@
 
                 balanceElement.innerHTML = `${userCoins[current_user.id]},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
 
-                document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2)
+                document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2) + '\n ' + JSON.stringify(userCoins, null, 2)
             })
             .catch(error => console.error('Error fetching data:', error));
     });
