@@ -122,7 +122,6 @@
                     .sort((a, b) => b.coins - a.coins)
                     .map((user, index) => ({
                         index: index + 1,
-                        user_id: user.user_id,
                         user_name: user.user_name,
                         user_photo: user.user_photo,
                         sum_coins: user.coins
@@ -131,6 +130,58 @@
                 const balanceElement = document.querySelector('.balance');
 
                 balanceElement.innerHTML = `${userCoins[current_user.id]},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
+
+                const leaderContainer = document.querySelector('.leader');
+
+                topUsers.forEach(user => {
+                    const leaderDiv = document.createElement('div');
+                    leaderDiv.classList.add('leader');
+
+                    const rowDiv = document.createElement('div');
+                    rowDiv.classList.add('row');
+
+                    const numberDiv = document.createElement('div');
+                    numberDiv.classList.add('number');
+                    numberDiv.textContent = `${user.index}.`;
+
+                    const userPhotoDiv = document.createElement('div');
+                    userPhotoDiv.classList.add('user-photo');
+                    const img = document.createElement('img');
+                    img.src = user.user_photo;
+                    img.alt = user.user_name;
+                    userPhotoDiv.appendChild(img);
+
+                    const nameWrapDiv = document.createElement('div');
+                    nameWrapDiv.classList.add('name-wrap');
+                    const nameDiv = document.createElement('div');
+                    nameDiv.classList.add('name');
+                    nameDiv.textContent = user.user_name;
+                    const statusDiv = document.createElement('div');
+                    statusDiv.classList.add('user-status', 'emerald');
+                    statusDiv.textContent = 'Изумрудный статус';
+                    nameWrapDiv.appendChild(nameDiv);
+                    nameWrapDiv.appendChild(statusDiv);
+
+                    const pointsDiv = document.createElement('div');
+                    pointsDiv.classList.add('points');
+                    pointsDiv.textContent = user.sum_coins;
+
+                    const coinDiv = document.createElement('div');
+                    coinDiv.classList.add('coin-small', 'coin-img');
+                    const coinImg = document.createElement('img');
+                    coinImg.src = '0001.avif';
+                    coinImg.alt = 'Монета';
+                    coinDiv.appendChild(coinImg);
+
+                    rowDiv.appendChild(numberDiv);
+                    rowDiv.appendChild(userPhotoDiv);
+                    rowDiv.appendChild(nameWrapDiv);
+                    rowDiv.appendChild(pointsDiv);
+                    rowDiv.appendChild(coinDiv);
+
+                    leaderDiv.appendChild(rowDiv);
+                    leaderContainer.appendChild(leaderDiv);
+                });
 
                 document.getElementById("tg-data").textContent += '\n ' + JSON.stringify(topUsers, null, 2) + '\n ' + JSON.stringify(userCoins, null, 2)
             })
