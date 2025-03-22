@@ -96,22 +96,22 @@
                     userCoins[userId] += task.coins;
                 }
 
-                if (!(current_user.id.toString() in users)) {
-                    fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            photo_url: current_user.photo_url,
-                            user_name: current_user.user_name
-                        }),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            window.location.reload();
-                        })
-                }
+                // if (!(current_user.id.toString() in users)) {
+                //     fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
+                //         method: 'POST',
+                //         body: JSON.stringify({
+                //             photo_url: current_user.photo_url,
+                //             user_name: current_user.user_name
+                //         }),
+                //         headers: {
+                //             'Content-Type': 'application/json'
+                //         }
+                //     })
+                //         .then(response => response.json())
+                //         .then(data => {
+                //             window.location.reload();
+                //         })
+                // }
 
                 const topUsers = Object.entries(userCoins)
                     .map(([userId, coins]) => {
