@@ -18,8 +18,8 @@
 <body>
     <div class="container_card">
 
-        <!-- <pre id="tg-data"
-            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre> -->
+        <pre id="tg-data"
+            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
 
         <h1 class="title">Заменить мусорный пакет</h1>
 
@@ -49,9 +49,8 @@
                 });
 
                 const current_user = {
-                    id: window.Telegram.WebApp.initDataUnsafe.user.id,
-                    name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
-                    photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
+                    safeAreaInset : window.Telegram.WebApp.safeAreaInset,
+                    contentSafeAreaInset: window.Telegram.WebApp.contentSafeAreaInset 
                 };
 
                 document.getElementById("tg-data").textContent += JSON.stringify(current_user, null, 2)

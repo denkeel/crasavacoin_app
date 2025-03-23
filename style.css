@@ -43,7 +43,7 @@ body {
 .container, .container_card {
   text-align: center;
   background: #fff;
-  padding: 10px 20px;
+  padding: 60px 20px 10px 20px;
   padding-bottom: 270px;
 }
 
