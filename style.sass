@@ -13,7 +13,7 @@ $h1: 26px
     src: url("fonts/minecraft-1-1.ttf") format("truetype")
     src: url("fonts/minecraft-1-1.woff") format("woff")
     src: url("fonts/minecraft-1-1.woff2") format("woff2")
-    font-weight: normal
+    font-weight: 900
     font-style: normal
 
 .container_card
@@ -36,8 +36,8 @@ $h1: 26px
         align-items: center
         .plus-text
             font-family: "Minecraft", sans-serif
+            font-weight: 900 !important
             font-size: 32px
-            font-weight: 700
             margin-right: 12px
         .coins
             display: flex
@@ -76,7 +76,6 @@ body
     padding: 55px 20px 10px 20px
     padding-bottom: 270px
     max-width: 500px
-
 .title
     margin: 10px 0 7px 0
     font-size: 24px
@@ -129,15 +128,15 @@ body
             .row
                 margin-bottom: 10px
                 font-weight: 800
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: center
                 .user-photo
                     margin-right: 10px
                     img
                         height: 30px
                         border-radius: 50%
-                        display: flex
-                        flex-direction: row
-                        justify-content: space-between
-                        align-items: center
                 .right
                     display: flex
                     flex-direction: columns
@@ -163,6 +162,7 @@ body
                 .points
                     margin-right: 5px
                     font-family: "Minecraft", sans-serif
+                    font-weight: 900
                 .coin-small
                     margin: 0 0 -3px 0
                     img
