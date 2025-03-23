@@ -53,6 +53,7 @@
 body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -61,8 +62,9 @@ body {
 .container, .container_card {
   text-align: center;
   background: #fff;
-  padding: 52px 20px 10px 20px;
+  padding: 50px 20px 10px 20px;
   padding-bottom: 270px;
+  max-width: 500px;
 }
 
 .title {
