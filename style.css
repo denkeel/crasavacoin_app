@@ -33,17 +33,17 @@
 }
 .container_card .btn {
   margin-top: 80px;
-  width: 80%;
-  box-shadow: 0px 11px 30px 0px rgba(255, 117, 1, 0.6);
-  background: linear-gradient(162deg, rgb(255, 187, 1) 15%, rgb(255, 117, 1) 100%);
+  box-shadow: 0px 11px 20px 0px rgba(255, 117, 1, 0.4);
+  background: linear-gradient(159deg, rgb(255, 187, 1) 15%, rgb(255, 117, 1) 100%);
+  border-radius: 18px;
   height: 50px;
+  width: 80%;
   border: none;
   color: white;
   font-weight: 800;
   font-size: 19px;
   line-height: 50px;
   text-decoration: none;
-  border-radius: 17px;
   transition: scale 0.3s ease;
 }
 .container_card .btn:hover, .container_card .btn:active {
@@ -54,16 +54,11 @@ body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 0;
   margin: 0;
 }
 
 .container, .container_card {
-  max-width: 700px;
-  display: flex;
-  align-content: center;
-  flex-direction: column;
   text-align: center;
   background: #fff;
   padding: 52px 20px 10px 20px;
@@ -129,6 +124,10 @@ body {
 .leaderboard .leaders-wrap .leaders .row {
   margin-bottom: 10px;
   font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .leaderboard .leaders-wrap .leaders .row .user-photo {
   margin-right: 10px;
@@ -136,10 +135,6 @@ body {
 .leaderboard .leaders-wrap .leaders .row .user-photo img {
   height: 30px;
   border-radius: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 .leaderboard .leaders-wrap .leaders .row .right {
   display: flex;

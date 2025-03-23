@@ -32,28 +32,19 @@ $h1: 26pxs
         img
             height: 45px
             margin-right: -28px
-
-    // .gradient-border
-    //     border-radius: $border-radius
-    //     background: linear-gradient(135deg, white, $primary-color)
-    //     padding: 0.5px
-    //     display: inline-block
-    //     width: 80%
-
     .btn
         margin-top: 80px
-        width: 80%
-        box-shadow: 0px 11px 30px 0px rgba(255,117,1,0.6)
-        background: linear-gradient(162deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
+        box-shadow: 0px 11px 20px 0px rgba(255,117,1,0.4)
+        background: linear-gradient(159deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
+        border-radius: $border-radius
         height: 50px
+        width: 80%
         border: none
         color: white
         font-weight: 800
         font-size: 19px
         line-height: 50px
         text-decoration: none
-        border-radius: 17px
-        // padding: 11px 121px
         transition: scale 0.3s ease
         &:hover, &:active
             scale: 95%
@@ -62,15 +53,10 @@ body
     font-family: "M PLUS Rounded 1c", sans-serif
     display: flex
     align-items: center
-    justify-content: center
     padding: 0
     margin: 0
 
 .container
-    max-width: 700px
-    display: flex
-    align-content: center
-    flex-direction: column
     text-align: center
     background: #fff
     padding: 52px 20px 10px 20px
@@ -91,9 +77,9 @@ body
 .coin
     img
         width: 68%
-
+        
 .coin-img
-    filter: saturate(120%)
+    filter: saturate(120%)     
 
 .balance
     margin: 10px
@@ -107,6 +93,7 @@ body
         color: $primary-color
         font-family: "M PLUS Rounded 1c", sans-serif
         font-weight: 800
+
 
 .leaderboard
     margin-top: 35px
@@ -128,14 +115,14 @@ body
                 margin-bottom: 10px
                 font-weight: 800
                 .user-photo
-                    margin-right: 10px
+                    margin-right: 10px 
                     img
                         height: 30px
                         border-radius: 50%
-                        display: flex
-                        flex-direction: row
-                        justify-content: space-between
-                        align-items: center
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: center
                 .right
                     display: flex
                     flex-direction: columns
@@ -188,7 +175,7 @@ body
         box-shadow: 0px 11px 20px 0px rgba(255,117,1,0.4)
         background: linear-gradient(159deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
         color: $text-light
-        padding: 22px 7px
+        padding: 22px 7px 
         border-radius: $border-radius
         font-size: 14px
         text-align: center
