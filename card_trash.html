@@ -43,7 +43,8 @@
     <body>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const backButton = window.Telegram.WebApp.BackButton;
+                const tg_app = window.Telegram.WebApp
+                const backButton = tg_app.BackButton;
                 backButton.show()
                 backButton.onClick(() => {
                     backButton.hide();
@@ -52,14 +53,14 @@
                 });
 
                 const current_user = {
-                    id: window.Telegram.WebApp.initDataUnsafe.user.id,
-                    name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
-                    photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
+                    id: tg_app.initDataUnsafe.user.id,
+                    name: tg_app.initDataUnsafe.user.first_name,
+                    photo_url: tg_app.initDataUnsafe.user.photo_url,
                 };
 
                 const safe_area_data = {
-                    safeAreaInset: window.Telegram.WebApp.safeAreaInset,
-                    contentSafeAreaInset: window.Telegram.WebApp.contentSafeAreaInset
+                    safeAreaInset: tg_app.safeAreaInset,
+                    contentSafeAreaInset: tg_app.contentSafeAreaInset
                 };
 
                 const button = document.querySelector('.btn');
