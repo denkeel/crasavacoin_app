@@ -83,7 +83,7 @@
         <div class="coin coin-img">
             <img id="animation" src="coin/0001.avif" alt="Монета">
         </div>
-        <p class="balance">0,<span class="balance-small">00</span> <span class="currency">CRC</span></p>
+        <p class="balance">0<span class="balance-small">,00</span> <span class="currency">CRC</span></p>
         <div class="leaderboard">
             <h2>Топ смешарики</h2>
             <div class="leaders-wrap">
@@ -235,7 +235,7 @@
 
                 const balanceElement = document.querySelector('.balance');
 
-                balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0},<span class="balance-small">00</span> <span class="currency">CRC</span>`;
+                balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
 
                 const leadersContainer = document.querySelector('.leaders');
 

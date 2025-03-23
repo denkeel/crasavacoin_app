@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("../fonts/minecraft-1-1.eot");
+  src: url("../fonts/minecraft-1-1.eot?#iefix") format("embedded-opentype");
+  src: url("../fonts/minecraft-1-1.otf") format("opentype");
+  src: url("../fonts/minecraft-1-1.svg") format("svg");
+  src: url("../fonts/minecraft-1-1.ttf") format("truetype");
+  src: url("../fonts/minecraft-1-1.woff") format("woff");
+  src: url("../fonts/minecraft-1-1.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/minecraft_font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 .container_card {
   display: flex;
   flex-direction: column;
@@ -19,7 +37,7 @@
   align-items: center;
 }
 .container_card .coins-wrap .plus-text {
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: "Minecraft", sans-serif;
   font-size: 32px;
   font-weight: 700;
   margin-right: 12px;
@@ -98,8 +116,8 @@ body {
 
 .balance {
   margin: 10px;
-  font-size: 48px;
-  font-family: "Pixelify Sans", sans-serif;
+  font-size: 42px;
+  font-family: "Minecraft", sans-serif;
   font-weight: 900;
 }
 .balance .balance-small {
@@ -132,10 +150,6 @@ body {
 .leaderboard .leaders-wrap .leaders .row {
   margin-bottom: 10px;
   font-weight: 800;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 .leaderboard .leaders-wrap .leaders .row .user-photo {
   margin-right: 10px;
@@ -143,6 +157,10 @@ body {
 .leaderboard .leaders-wrap .leaders .row .user-photo img {
   height: 30px;
   border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .leaderboard .leaders-wrap .leaders .row .right {
   display: flex;
@@ -174,7 +192,7 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: "Minecraft", sans-serif;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;

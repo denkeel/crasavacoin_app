@@ -4,6 +4,25 @@ $text-light: #fff
 $border-radius: 18px
 $h1: 26px
 
+@font-face
+    font-family: "Minecraft"
+    src: url("../fonts/minecraft-1-1.eot")
+    src: url("../fonts/minecraft-1-1.eot?#iefix") format("embedded-opentype")
+    src: url("../fonts/minecraft-1-1.otf") format("opentype")
+    src: url("../fonts/minecraft-1-1.svg") format("svg")
+    src: url("../fonts/minecraft-1-1.ttf") format("truetype")
+    src: url("../fonts/minecraft-1-1.woff") format("woff")
+    src: url("../fonts/minecraft-1-1.woff2") format("woff2")
+    font-weight: normal
+    font-style: normal
+
+@font-face
+    font-family: 'Minecraft'
+    src: url('/fonts/minecraft_font.woff2') format('woff2')
+    font-weight: normal
+    font-style: normal
+
+
 .container_card
     @extend .container
     display: flex
@@ -23,7 +42,7 @@ $h1: 26px
         justify-content: center
         align-items: center
         .plus-text
-            font-family: "Pixelify Sans", sans-serif
+            font-family: "Minecraft", sans-serif
             font-size: 32px
             font-weight: 700
             margin-right: 12px
@@ -81,14 +100,14 @@ body
     img
         width: 68%
         user-select: none
-        
+
 .coin-img
-    filter: saturate(120%)     
+    filter: saturate(120%)
 
 .balance
     margin: 10px
-    font-size: 48px
-    font-family: "Pixelify Sans", sans-serif
+    font-size: 42px
+    font-family: "Minecraft", sans-serif
     font-weight: 900
     .balance-small
         font-size: 12px
@@ -97,7 +116,6 @@ body
         color: $primary-color
         font-family: "M PLUS Rounded 1c", sans-serif
         font-weight: 800
-
 
 .leaderboard
     margin-top: 35px
@@ -119,14 +137,14 @@ body
                 margin-bottom: 10px
                 font-weight: 800
                 .user-photo
-                    margin-right: 10px 
+                    margin-right: 10px
                     img
                         height: 30px
                         border-radius: 50%
-                display: flex
-                flex-direction: row
-                justify-content: space-between
-                align-items: center
+                        display: flex
+                        flex-direction: row
+                        justify-content: space-between
+                        align-items: center
                 .right
                     display: flex
                     flex-direction: columns
@@ -151,7 +169,7 @@ body
                         font-size: 10px
                 .points
                     margin-right: 5px
-                    font-family: "Pixelify Sans", sans-serif
+                    font-family: "Minecraft", sans-serif
                 .coin-small
                     margin: 0 0 -3px 0
                     img
@@ -179,7 +197,7 @@ body
         box-shadow: 0px 11px 20px 0px rgba(255,117,1,0.4)
         background: linear-gradient(159deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
         color: $text-light
-        padding: 22px 7px 
+        padding: 22px 7px
         border-radius: $border-radius
         font-size: 14px
         text-align: center
