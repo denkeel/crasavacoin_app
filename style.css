@@ -57,6 +57,9 @@ body {
   align-items: center;
   padding: 0;
   margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .container, .container_card {
@@ -84,6 +87,9 @@ body {
 
 .coin img {
   width: 68%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .coin-img {
