@@ -79,6 +79,8 @@
                         .then(response => response.json())
                         .then(data => {
                             console.log('Success:', data);
+
+                            window.location.href = "/crasavacoin_app/";
                         })
                         .catch((error) => {
                             console.error('Error:', error);
