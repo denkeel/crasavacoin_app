@@ -12,6 +12,25 @@
 .container_card h1 {
   margin-top: 35px;
 }
+.container_card .coins-wrap {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.container_card .coins-wrap .plus-text {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.container_card .coins-wrap .coins {
+  display: flex;
+}
+.container_card .coins-wrap img {
+  height: 35px;
+  margin-right: -18px;
+}
 
 body {
   font-family: "M PLUS Rounded 1c", sans-serif;
