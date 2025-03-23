@@ -18,24 +18,35 @@
 <body>
     <div class="container_card">
 
-        <!-- <pre id="tg-data" style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre> -->
+        <pre id="tg-data"
+            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre>
 
         <h1 class="title">Заменить мусорный пакет</h1>
 
         <div class="medium">Полностью заменить мусорный пакет, и поставить новый</div>
     </div>
-<body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const backButton = window.Telegram.WebApp.BackButton;
-            backButton.show()
-            backButton.onClick(() => {
-                window.history.back();
 
-                if (window.history.length <= 1) {
-                    backButton.hide();
-                }
-            });
-        })
-    </script>
+    <body>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const backButton = window.Telegram.WebApp.BackButton;
+                backButton.show()
+                backButton.onClick(() => {
+                    window.history.back();
+
+                    if (window.history.length <= 1) {
+                        backButton.hide();
+                    }
+                });
+
+                const current_user = {
+                    id: window.Telegram.WebApp.initDataUnsafe.user.id,
+                    name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
+                    photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
+                };
+
+                document.getElementById("tg-data").textContent += JSON.stringify(current_user, null, 2)
+            })
+        </script>
+
 </html>
