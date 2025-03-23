@@ -97,6 +97,9 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const backButton = window.Telegram.WebApp.BackButton;
+        backButton.hide()
+
         const current_user = {
             id: window.Telegram.WebApp.initDataUnsafe.user.id,
             name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
