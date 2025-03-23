@@ -32,9 +32,9 @@
                 const backButton = window.Telegram.WebApp.BackButton;
                 backButton.show()
                 backButton.onClick(() => {
-                    window.history.back();
-
                     backButton.hide();
+                    
+                    window.history.back();
                 });
 
                 const current_user = {
