@@ -136,13 +136,13 @@
 </body>
 
 <script>
+    const tg_app = window.Telegram.WebApp
+    
+    tg_app.setHeaderColor('#FFFFFF')
+    tg_app.setBackgroundColor('#FFFFFF')
+    tg_app.setBottomBarColor('#FFFFFF')
+    tg_app.requestFullscreen()
     document.addEventListener("DOMContentLoaded", function () {
-        const tg_app = window.Telegram.WebApp
-        
-        tg_app.setHeaderColor('#FFFFFF')
-        tg_app.setBackgroundColor('#FFFFFF')
-        tg_app.setBottomBarColor('#FFFFFF')
-        tg_app.requestFullscreen()
 
         const totalFrames = 60;
         const baseFrameRate = 60;
