@@ -139,6 +139,13 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const tg_app = window.Telegram.WebApp
+        
+        tg_app.setHeaderColor('#FFFFFF')
+        tg_app.setBackgroundColor('#FFFFFF')
+        tg_app.setBottomBarColor('#FFFFFF')
+        tg_app.requestFullscreen()
+
         const totalFrames = 60;
         const baseFrameRate = 60;
         const baseInterval = 1000 / baseFrameRate;
@@ -172,13 +179,6 @@
                 queuedClicks++;
             }
         });
-
-        const tg_app = window.Telegram.WebApp
-
-        tg_app.setHeaderColor('#FFFFFF')
-        tg_app.setBackgroundColor('#FFFFFF')
-        tg_app.setBottomBarColor('#FFFFFF')
-        tg_app.requestFullscreen()
 
         const backButton = tg_app.BackButton;
         backButton.hide()
