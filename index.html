@@ -23,7 +23,7 @@
         <h1 class="title">Баланс</h1>
         <p class="current-status bronze">Бронзовый статус</p>
         <div class="coin coin-img">
-            <img src="coin/0001.avif" alt="Монета">
+            <img id="animation" src="coin/0001.avif" alt="Монета">
         </div>
         <p class="balance">0,<span class="balance-small">00</span> <span class="currency">CRC</span></p>
         <div class="leaderboard">
@@ -43,24 +43,6 @@
                         </div>
                         <div class="left">
                             <div class="points">110</div>
-                            <div class="coin-small coin-img">
-                                <img src="coin/0001.avif" alt="Монета">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="right">
-                            <div class="number"><span>1.</span></div>
-                            <div class="user-photo">
-                                <img src="user1.jpg" alt="">
-                            </div>
-                            <div class="name-wrap">
-                                <div class="name">Мага</div>
-                                <div class="user-status emerald">Изумрудный статус</div>
-                            </div>
-                        </div>
-                        <div class="left">
-                            <div class="points">10</div>
                             <div class="coin-small coin-img">
                                 <img src="coin/0001.avif" alt="Монета">
                             </div>
@@ -97,6 +79,40 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const totalFrames = 60;
+        const baseFrameRate = 60;
+        const baseInterval = 1000 / baseFrameRate;
+        let isAnimating = false;
+        let queuedClicks = 0;
+        function playAnimation(speedFactor) {
+            let currentFrame = 1;
+            const interval = baseInterval / speedFactor;
+            const img = document.getElementById('animation');
+            const timer = setInterval(() => {
+                const frameStr = String(currentFrame).padStart(4, '0');
+                img.src = `coin/${frameStr}.avif`;
+                currentFrame++;
+                if (currentFrame > totalFrames) {
+                    clearInterval(timer);
+                    if (queuedClicks > 0) {
+                        const newSpeed = 1 + queuedClicks;
+                        queuedClicks = 0;
+                        playAnimation(newSpeed);
+                    } else {
+                        isAnimating = false;
+                    }
+                }
+            }, interval);
+        }
+        document.addEventListener('click', () => {
+            if (!isAnimating) {
+                isAnimating = true;
+                playAnimation(1);
+            } else {
+                queuedClicks++;
+            }
+        });
+
         const backButton = window.Telegram.WebApp.BackButton;
         backButton.hide()
 
@@ -105,6 +121,7 @@
             name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
             photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
         };
+
 
         fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
             .then(response => response.json())
