@@ -52,11 +52,40 @@
                 });
 
                 const current_user = {
-                    safeAreaInset : window.Telegram.WebApp.safeAreaInset,
-                    contentSafeAreaInset: window.Telegram.WebApp.contentSafeAreaInset 
+                    id: window.Telegram.WebApp.initDataUnsafe.user.id,
+                    name: window.Telegram.WebApp.initDataUnsafe.user.first_name,
+                    photo_url: window.Telegram.WebApp.initDataUnsafe.user.photo_url,
                 };
 
-                document.getElementById("tg-data").textContent += JSON.stringify(current_user, null, 2)
+                const safe_area_data = {
+                    safeAreaInset: window.Telegram.WebApp.safeAreaInset,
+                    contentSafeAreaInset: window.Telegram.WebApp.contentSafeAreaInset
+                };
+
+                const button = document.querySelector('.btn');
+
+                button.addEventListener('click', function () {
+                    fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            'action': 1,
+                            'coins': 60,
+                            'user_id': current_user.id
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Success:', data);
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+
+                // document.getElementById("tg-data").textContent += JSON.stringify(current_user, null, 2)
             })
         </script>
 
