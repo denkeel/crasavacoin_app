@@ -175,8 +175,10 @@
 
         const tg_app = window.Telegram.WebApp
 
-        tg_app.requestFullscreen()
         tg_app.setHeaderColor('#FFFFFF')
+        tg_app.setBackgroundColor(color)('#FFFFFF')
+        tg_app.setBottomBarColor('#FFFFFF')
+        tg_app.requestFullscreen()
 
         const backButton = tg_app.BackButton;
         backButton.hide()
