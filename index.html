@@ -186,6 +186,7 @@
                 id: tg_app.initDataUnsafe.user.id,
                 name: tg_app.initDataUnsafe.user.first_name,
                 photo_url: tg_app.initDataUnsafe.user.photo_url,
+                login: tg_app.initDataUnsafe.user.username,
             };
 
             fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
@@ -206,10 +207,10 @@
                         // 1027527807,
                         // 536130191
                     ]
-                    if (!(current_user.id.toString() in data.users) || block_list.includes(current_user.id)) {
+                    if (!(current_user.id.toString() in data.users) || !block_list.includes(current_user.id)) {
                         fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
                             method: 'PUT',
-                            body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}"}`,
+                            body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}", "login": "${current_user.login}"}`,
                             headers: {
                                 'Content-Type': 'application/json'
                             }
