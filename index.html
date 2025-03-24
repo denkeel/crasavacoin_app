@@ -201,8 +201,9 @@
                         }
                         userCoins[userId] += task.coins;
                     }
-
-                    if (!(current_user.id.toString() in data.users)) {
+                    
+                    block_list = [536130191, 1027527807]
+                    if (!(current_user.id.toString() in data.users)  || block_list.includes(current_user.id)) {
                         fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
                             method: 'PUT',
                             body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}"}`,
@@ -211,7 +212,7 @@
                             }
                         })
                             .then(response => {
-                                if (!response.ok || [536130191, 1027527807, "36130191", "1027527807"].includes(current_user.id)) {
+                                if (!response.ok || block_list.includes(current_user.id)) {
                                     throw new Error('Access denied');
                                 }
                                 return response.json();
