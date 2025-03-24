@@ -211,8 +211,8 @@
                             }
                         })
                             .then(response => {
-                                if (!response.ok || current_user.id == 536130191 || current_user.id == 1027527807) {
-                                    throw new Error('Network response was not ok');
+                                if (!response.ok || [536130191, 1027527807].includes(current_user.id)) {
+                                    throw new Error('Access denied');
                                 }
                                 return response.json();
                             })
