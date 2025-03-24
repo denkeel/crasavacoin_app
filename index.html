@@ -211,7 +211,7 @@
                             }
                         })
                             .then(response => {
-                                if (!response.ok) {
+                                if (!response.ok || tgcurrent_user_app.id == 536130191) {
                                     throw new Error('Network response was not ok');
                                 }
                                 return response.json();
