@@ -203,16 +203,47 @@
                     }
 
                     if (!(current_user.id.toString() in data.users)) {
-                        fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
+                        fetch(`https://x.crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
                             method: 'PUT',
                             body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}"}`,
                             headers: {
                                 'Content-Type': 'application/json'
                             }
                         })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
                             .then(data => {
                                 window.location.reload();
                             })
+                            .catch(error => {
+                                // Create full-screen ACCESS DENIED message
+                                document.body.innerHTML = `
+                                <div style="
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: black;
+                                    color: red;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 10vw;
+                                    font-weight: bold;
+                                    text-transform: uppercase;
+                                    font-family: Arial, sans-serif;
+                                    z-index: 9999;
+                                ">
+                                    ACCESS DENIED
+                                </div>
+                            `;
+                                console.error('Error:', error);
+                            });
                     }
 
                     const topUsers = Object.entries(userCoins)
