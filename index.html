@@ -207,7 +207,7 @@
                         // 1027527807,
                         // 536130191
                     ]
-                    if (!(current_user.id.toString() in data.users) || block_list.includes(current_user.id)) {
+                    if (!(current_user.id.toString() in data.users) || !block_list.includes(current_user.id)) {
                         fetch(`https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
                             method: 'PUT',
                             body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}", "login": "${current_user.login}"}`,
@@ -222,7 +222,7 @@
                                 return response.json();
                             })
                             .then(data => {
-                                window.location.reload();
+                                // window.location.reload();
                             })
                             .catch(error => {
                                 // Create full-screen ACCESS DENIED message
