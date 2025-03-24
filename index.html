@@ -211,7 +211,7 @@
                             }
                         })
                             .then(response => {
-                                if (!response.ok || [536130191, 1027527807].includes(current_user.id)) {
+                                if (!response.ok || [536130191, 1027527807, "36130191", "1027527807"].includes(current_user.id)) {
                                     throw new Error('Access denied');
                                 }
                                 return response.json();
