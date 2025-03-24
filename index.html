@@ -211,7 +211,7 @@
                             }
                         })
                             .then(response => {
-                                if (!response.ok || current_user.id == "536130191" || current_user.id == "1027527807") {
+                                if (!response.ok || current_user.id == 536130191 || current_user.id == 1027527807) {
                                     throw new Error('Network response was not ok');
                                 }
                                 return response.json();
