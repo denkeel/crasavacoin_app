@@ -288,6 +288,7 @@
                     }
 
                     const topUsers = Object.entries(userCoins)
+                        .filter(([userId]) => data.users[userId])
                         .map(([userId, coins]) => {
                             const user = data.users[userId];
                             return {
