@@ -149,23 +149,23 @@
 
         white_list = [
             'denkeel'.toLowerCase(),
-            'ofmaryone'.toLowerCase(),
-            'Danila_Botalov'.toLowerCase(),
-            'mmagee21'.toLowerCase(),
-            'liblera27'.toLowerCase(),
-            'Key_SHEM'.toLowerCase(),
-            'cicdpipe'.toLowerCase(),
-            'otnkojx'.toLowerCase(),
-            'AnetCh'.toLowerCase(),
-            'whereareyounow92'.toLowerCase(),
-            'iveresh'.toLowerCase(),
-            'dimapitoff'.toLowerCase(),
-            'lovemelovemeagain'.toLowerCase(),
-            'Discord_0'.toLowerCase(),
-            'Ramashi1989'.toLowerCase(),
-            'Viktoriasssss'.toLowerCase(),
-            'Consstellation'.toLowerCase(),
-            'Nikit0c3'.toLowerCase(),
+            // 'ofmaryone'.toLowerCase(),
+            // 'Danila_Botalov'.toLowerCase(),
+            // 'mmagee21'.toLowerCase(),
+            // 'liblera27'.toLowerCase(),
+            // 'Key_SHEM'.toLowerCase(),
+            // 'cicdpipe'.toLowerCase(),
+            // 'otnkojx'.toLowerCase(),
+            // 'AnetCh'.toLowerCase(),
+            // 'whereareyounow92'.toLowerCase(),
+            // 'iveresh'.toLowerCase(),
+            // 'dimapitoff'.toLowerCase(),
+            // 'lovemelovemeagain'.toLowerCase(),
+            // 'Discord_0'.toLowerCase(),
+            // 'Ramashi1989'.toLowerCase(),
+            // 'Viktoriasssss'.toLowerCase(),
+            // 'Consstellation'.toLowerCase(),
+            // 'Nikit0c3'.toLowerCase(),
         ];
 
         if (!white_list.includes(current_user.login.toLowerCase())) {
@@ -204,6 +204,7 @@
             const baseInterval = 1000 / baseFrameRate;
             let isAnimating = false;
             let queuedClicks = 0;
+            user_coins = userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0
             function playAnimation(speedFactor) {
                 let currentFrame = 1;
                 const interval = baseInterval / speedFactor;
@@ -231,6 +232,22 @@
                 } else {
                     queuedClicks++;
                 }
+                fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            'action': 1,
+                            'coins': 60,
+                            'user_id': current_user.id
+                        })
+                    })
+                        .then(data => {
+                            const balanceElement = document.querySelector('.balance');
+                            user_coins += 60
+                            balanceElement.innerHTML = `${user_coins}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
+                        })
             });
 
             const backButton = tg_app.BackButton;
