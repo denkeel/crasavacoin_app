@@ -403,7 +403,7 @@
                             user_coins += 60
                             balanceElement.innerHTML = `${user_coins}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
                             
-                            if (count % 50 === 0) {
+                            if (count % 30 === 0) {
                                     fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
                                         .then(response => response.json())
                                         .then(data => {
