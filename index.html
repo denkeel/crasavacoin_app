@@ -387,23 +387,23 @@
                             queuedClicks++;
                         }
                         count += 1
-                        if (count % 50 === 0) {
-                            fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    'action': 1,
-                                    'coins': 60,
-                                    'user_id': current_user.id
-                                })
+                        fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                'action': 1,
+                                'coins': 60,
+                                'user_id': current_user.id
                             })
-                                .then(data => {
-                                    const balanceElement = document.querySelector('.balance');
-                                    user_coins += 60
-                                    balanceElement.innerHTML = `${user_coins}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
-
+                        })
+                        .then(data => {
+                            const balanceElement = document.querySelector('.balance');
+                            user_coins += 60
+                            balanceElement.innerHTML = `${user_coins}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
+                            
+                            if (count % 50 === 0) {
                                     fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/.json')
                                         .then(response => response.json())
                                         .then(data => {
@@ -497,8 +497,8 @@
                                                 leadersContainer.appendChild(row);
                                             });
                                         })
+                                    }
                                 })
-                        }
                     });
                 })
         });
