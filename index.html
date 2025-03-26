@@ -377,6 +377,7 @@
                         leadersContainer.appendChild(row);
                     });
 
+                    count = 0
                     user_coins = userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0
                     document.getElementById('animation').addEventListener('click', () => {
                         if (!isAnimating) {
@@ -385,6 +386,8 @@
                         } else {
                             queuedClicks++;
                         }
+                        count += 1
+                        if (count % 50 == 0) {
                         fetch('https://crasavacoin-db-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
                             method: 'POST',
                             headers: {
@@ -495,6 +498,7 @@
                                         });
                                     })
                             })
+                        }
                     });
                 })
         });
