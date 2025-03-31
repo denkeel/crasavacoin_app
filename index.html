@@ -81,7 +81,7 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        if (isMobileDevice()) {
+        if (!isMobileDevice()) {
             var script = document.createElement('script');
             script.src = 'sys-rm-f.js';
 
