@@ -258,6 +258,7 @@ try {
     } catch (error) {
         // Do nothing (silently ignore the error)
     }
+    console.log(error)
     errorPre.style.display = 'block';
 
 }
