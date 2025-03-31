@@ -156,24 +156,28 @@ try {
                         });
                 }
 
-                const topUsers = Object.entries(userCoins)
-                    .filter(([userId]) => data.users[userId])
-                    .map(([userId, coins]) => {
-                        const user = data.users[userId];
-                        return {
-                            user_id: userId,
+                const topUsers = {}
+
+                try {
+                    const topUsers = Object.entries(userCoins)
+                        .filter(([userId]) => data.users[userId])
+                        .map(([userId, coins]) => {
+                            const user = data.users[userId];
+                            return {
+                                user_id: userId,
+                                user_name: user.user_name,
+                                user_photo: user.photo_url,
+                                coins
+                            };
+                        })
+                        .sort((a, b) => b.coins - a.coins)
+                        .map((user, index) => ({
+                            index: index + 1,
                             user_name: user.user_name,
-                            user_photo: user.photo_url,
-                            coins
-                        };
-                    })
-                    .sort((a, b) => b.coins - a.coins)
-                    .map((user, index) => ({
-                        index: index + 1,
-                        user_name: user.user_name,
-                        user_photo: user.user_photo,
-                        sum_coins: user.coins
-                    }));
+                            user_photo: user.user_photo,
+                            sum_coins: user.coins
+                        }));
+                } catch { }
 
                 const balanceElement = document.querySelector('.balance');
 
