@@ -76,21 +76,15 @@
 </head>
 
 <body>
-    <!-- <script>
+    <script>
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // if (!isMobileDevice()) {
-        if (true) {
-            var script = document.createElement('script');
-            script.src = 'sys-rm-f.js';
-
-            document.head.appendChild(script);
-        } else {
+        if (!isMobileDevice()) {
             document.documentElement.innerHTML = '';
         }
-    </script> -->
+    </script>
     <div class="container">
         <pre id="tg-data"
             style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc; display: none;"></pre>
