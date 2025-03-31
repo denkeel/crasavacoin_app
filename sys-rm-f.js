@@ -238,8 +238,6 @@ try {
                     leadersContainer.appendChild(row);
                 });
 
-                count = 0
-                user_coins = userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0
                 document.getElementById('animation').addEventListener('click', () => {
                     if (!isAnimating) {
                         isAnimating = true;
@@ -247,118 +245,6 @@ try {
                     } else {
                         queuedClicks++;
                     }
-                    count += 1
-                    fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            'action': 1,
-                            'coins': 60,
-                            'user_id': current_user.id
-                        })
-                    })
-                    .then(data => {
-                        const balanceElement = document.querySelector('.balance');
-                        user_coins += 60
-                        balanceElement.innerHTML = `${user_coins}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
-                        
-                        if (count % 30 === 0) {
-                                fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/.json')
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        const userCoins = {};
-                                        for (const taskId in data.tasks) {
-                                            const task = data.tasks[taskId];
-                                            const userId = task.user_id;
-                                            if (!userCoins[userId]) {
-                                                userCoins[userId] = 0;
-                                            }
-                                            userCoins[userId] += task.coins;
-                                        }
-
-                                        const topUsers = Object.entries(userCoins)
-                                            .filter(([userId]) => data.users[userId])
-                                            .map(([userId, coins]) => {
-                                                const user = data.users[userId];
-                                                return {
-                                                    user_id: userId,
-                                                    user_name: user.user_name,
-                                                    user_photo: user.photo_url,
-                                                    coins
-                                                };
-                                            })
-                                            .sort((a, b) => b.coins - a.coins)
-                                            .map((user, index) => ({
-                                                index: index + 1,
-                                                user_name: user.user_name,
-                                                user_photo: user.user_photo,
-                                                sum_coins: user.coins
-                                            }));
-
-                                        const leadersContainer = document.querySelector('.leaders');
-
-                                        leadersContainer.innerHTML = '';
-                                        topUsers.forEach(user => {
-                                            const row = document.createElement('div');
-                                            row.classList.add('row');
-
-                                            const rightDiv = document.createElement('div');
-                                            rightDiv.classList.add('right');
-
-                                            const numberDiv = document.createElement('div');
-                                            numberDiv.classList.add('number');
-                                            numberDiv.textContent = `${user.index}.`;
-
-                                            const userPhotoDiv = document.createElement('div');
-                                            userPhotoDiv.classList.add('user-photo');
-                                            const userPhotoImg = document.createElement('img');
-                                            userPhotoImg.src = user.user_photo;
-                                            userPhotoImg.alt = '';
-                                            userPhotoDiv.appendChild(userPhotoImg);
-
-                                            const nameWrapDiv = document.createElement('div');
-                                            nameWrapDiv.classList.add('name-wrap');
-                                            const nameDiv = document.createElement('div');
-                                            nameDiv.classList.add('name');
-                                            nameDiv.textContent = user.user_name;
-                                            const userStatusDiv = document.createElement('div');
-                                            userStatusDiv.classList.add('user-status', 'bronze');
-                                            userStatusDiv.textContent = 'Бронзовый статус';
-
-                                            nameWrapDiv.appendChild(nameDiv);
-                                            nameWrapDiv.appendChild(userStatusDiv);
-
-                                            rightDiv.appendChild(numberDiv);
-                                            rightDiv.appendChild(userPhotoDiv);
-                                            rightDiv.appendChild(nameWrapDiv);
-
-                                            const leftDiv = document.createElement('div');
-                                            leftDiv.classList.add('left');
-
-                                            const pointsDiv = document.createElement('div');
-                                            pointsDiv.classList.add('points');
-                                            pointsDiv.textContent = user.sum_coins;
-
-                                            const coinSmallDiv = document.createElement('div');
-                                            coinSmallDiv.classList.add('coin-small', 'coin-img');
-                                            const coinImg = document.createElement('img');
-                                            coinImg.src = 'coin/0001.avif';
-                                            coinImg.alt = 'Монета';
-                                            coinSmallDiv.appendChild(coinImg);
-
-                                            leftDiv.appendChild(pointsDiv);
-                                            leftDiv.appendChild(coinSmallDiv);
-
-                                            row.appendChild(rightDiv);
-                                            row.appendChild(leftDiv);
-
-                                            leadersContainer.appendChild(row);
-                                        });
-                                    })
-                                }
-                            })
                 });
             })
     });
