@@ -98,13 +98,14 @@
                         method: 'GET'
                     })
                         .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`Ошибка: ${JSON.stringify(response.json())}`);
-                            }
-                            return response.json();  // Assuming the response is JSON, adjust as needed
+                            // if (!response.ok) {
+                            //     throw new Error(`Ошибка: ${JSON.stringify(response.json())}`);
+                            // }
+                            return response.json();
                         })
                         .then(data => {
                             alert(`${data}`);
+                            // throw new Error(`Ошибка: ${JSON.stringify(data)}`)
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
