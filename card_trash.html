@@ -104,49 +104,54 @@
                             photo: base64File
                         };
 
+                        // const formData = new FormData();
+                        // formData.append('image', file); // Добавляем изображение
+                        // formData.append('json', JSON.stringify(payload)); // Добавляем JSON-данные
+
                         fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
-                            method: 'POST',
+                            method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
                             // body: JSON.stringify(payload)
-                            body: {}
+                            // body: {}
+                            // body: formData
                         })
                             .then(response => {
                                 // alert(`${JSON.stringify(response.json())}`);
                             })
                             .catch(error => {
                                 console.error("Ошибка:", error);
-                                alert(`Произошла ошибка при отправке файла 3. ${error}` + event.target.error);
+                                alert(`Произошла ошибка при отправке файла 4. ${error}` + event.target.error);
                                 location.reload();
                             });
-                        };
-                        
-                        reader.readAsDataURL(file);
-                    });
-                });
+                    };
 
-                // if (response.ok) {
-                //     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                //         method: 'POST',
-                //         headers: {
-                //             'Content-Type': 'application/json'
-                //         },
-                //         body: JSON.stringify({
-                //             'action': 1,
-                //             'coins': 60,
-                //             'user_id': current_user.id
-                //         })
-                //     })
-                //         .then(response => {
-                //             window.location.href = "/crasavacoin_app/";
-                //         })
-                //         .catch(error => {
-                //             console.error("Ошибка:", error);
-                //             alert(`Произошла при начислении баллов. ${error}`);
-                //             location.reload();
-                //         });
-                // }
-                </script>
+                    reader.readAsDataURL(file);
+                });
+            });
+
+            // if (response.ok) {
+            //     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify({
+            //             'action': 1,
+            //             'coins': 60,
+            //             'user_id': current_user.id
+            //         })
+            //     })
+            //         .then(response => {
+            //             window.location.href = "/crasavacoin_app/";
+            //         })
+            //         .catch(error => {
+            //             console.error("Ошибка:", error);
+            //             alert(`Произошла при начислении баллов. ${error}`);
+            //             location.reload();
+            //         });
+            // }
+        </script>
 
 </html>
