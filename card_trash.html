@@ -86,6 +86,7 @@
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
 
+                    const fileInput = document.getElementById('fileInput'); // ✅ FIXED
                     const file = fileInput.files[0];
 
                     if (!file) {
@@ -102,7 +103,7 @@
                             caption: `Заменить мусорный пакет. ${current_user.name} +60`,
                             photo: base64File
                         };
-                        
+
                         fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
                             method: 'POST',
                             headers: {
