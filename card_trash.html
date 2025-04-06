@@ -95,7 +95,7 @@
                     }
 
                     const formData = new FormData();
-                    formData.append('caption', `Заменить мусорный пакет. {current_user.name} +60`);
+                    formData.append('caption', `Заменить мусорный пакет. ${current_user.name} +60`);
                     formData.append('photo', file);
 
                     fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
@@ -103,6 +103,11 @@
                         body: formData
                     })
                         .then(response => {
+                            if (!response.ok) {
+                                alert(`Произошла ошибка при отправке. ${response.json()}`);
+                                location.reload();
+                                throw new Error();
+                            }
                             fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
                                 method: 'POST',
                                 headers: {
@@ -114,19 +119,24 @@
                                     'user_id': current_user.id
                                 })
                             })
-                                .then(data => {
+                                .then(response => {
+                                    if (!response.ok) {
+                                        alert(`Произошла ошибка при отправке. ${response.json()}`);
+                                        location.reload();
+                                        throw new Error();
+                                    }
                                     window.location.href = "/crasavacoin_app/";
                                 })
                                 .catch(error => {
                                     console.error("Ошибка:", error);
-                                    alert(`Произошла ошибка при отправке. {error}`);
+                                    alert(`Произошла ошибка при отправке. ${error}`);
                                     location.reload();
                                     throw error
                                 });
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
-                            alert(`Произошла ошибка при отправке. {error}`);
+                            alert(`Произошла ошибка при отправке. ${error}`);
                             location.reload();
                             throw error
                         });
