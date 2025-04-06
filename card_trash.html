@@ -104,38 +104,42 @@
                     })
                         .then(response => {
                             if (!response.ok) {
-                                alert(`Произошла ошибка при отправке. ${response.json()}`);
-                                location.reload();
-                                throw new Error();
-                            } else {
-                                fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                        'action': 1,
-                                        'coins': 60,
-                                        'user_id': current_user.id
-                                    })
-                                })
-                                    .then(response => {
-                                        window.location.href = "/crasavacoin_app/";
-                                    })
-                                    .catch(error => {
-                                        console.error("Ошибка:", error);
-                                        alert(`Произошла ошибка при отправке. ${error}`);
-                                        location.reload();
-                                        throw error
-                                    });
+                                return response.json().then(errData => {
+                                    alert(`Произошла ошибка при отправке. ${JSON.stringify(errData)}`);
+                                    location.reload();
+                                    throw new Error("Report request failed");
+                                });
                             }
+                            // Proceed with second request if report was successful
+                            return fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    'action': 1,
+                                    'coins': 60,
+                                    'user_id': current_user.id
+                                })
+                            });
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                return response.json().then(updateError => {
+                                    alert(`Ошибка при обновлении задачи. ${JSON.stringify(updateError)}`);
+                                    location.reload();
+                                    throw new Error("Task update failed");
+                                });
+                            }
+                            window.location.href = "/crasavacoin_app/";
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
                             alert(`Произошла ошибка при отправке. ${error}`);
                             location.reload();
-                            throw error
+                            throw error;
                         });
+
 
                 });
 
