@@ -112,12 +112,11 @@
                             body: JSON.stringify(payload)
                         })
                             .then(response => {
-                                alert(`${JSON.stringify(response.json())}`);
-                                
+                                // alert(`${JSON.stringify(response.json())}`);
                             })
                             .catch(error => {
                                 console.error("Ошибка:", error);
-                                alert(`Произошла ошибка при отправке. ${error}` + event.target.error);
+                                alert(`Произошла ошибка при отправке файла. ${error}` + event.target.error);
                                 location.reload();
                             });
                         };
