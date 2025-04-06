@@ -35,6 +35,13 @@
                 <img style="z-index: 1" src="coin/0001.avif" alt="Монета">
             </div>
         </div>
+
+        <div class="photo-upload" onclick="document.getElementById('fileInput').click()">
+            <input type="file" name="file" id="fileInput" style="display: none;" onchange="updateFileName(this)">
+            <span class="input-file-btn" id="fileLabel">Выберите файл</span>
+        </div>
+
+
         <a href="#" class="btn">
             Выполнено
         </a>
@@ -42,13 +49,20 @@
 
     <body>
         <script>
+            function updateFileName(input) {
+                const fileLabel = document.getElementById('fileLabel');
+                if (input.files && input.files[0]) {
+                    fileLabel.textContent = input.files[0].name;
+                }
+            }
+
             const tg_app = window.Telegram.WebApp
-    
+
             tg_app.setHeaderColor('#FFFFFF')
             tg_app.setBackgroundColor('#FFFFFF')
             tg_app.setBottomBarColor('#FFFFFF')
             document.addEventListener("DOMContentLoaded", function () {
-                
+
                 const backButton = tg_app.BackButton;
                 backButton.show()
                 backButton.onClick(() => {
@@ -70,7 +84,30 @@
 
                 const button = document.querySelector('.btn');
 
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    if (!file) {
+                        alert("Пожалуйста, выберите файл.");
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('caption', `Заменить мусорный пакет. {current_user.name} +60`);
+                    formData.append('photo', file);
+
+                    fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => {
+                        })
+                        .catch(error => {
+                            console.error("Ошибка:", error);
+                            alert("Произошла ошибка при отправке.");
+                            throw error
+                        });
+
                     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
                         method: 'POST',
                         headers: {

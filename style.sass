@@ -44,8 +44,33 @@ $h1: 26px
         img
             height: 45px
             margin-right: -28px
-    .btn
+    .photo-upload
+        display: flex
+        width: 90%
+        justify-content: start
+        align-items: start
         margin-top: 80px
+        .input-file-btn
+            padding: 10px 20px
+            border: none
+            border-radius: 999px
+            background: $text-dark
+            color: white
+            font-weight: bold
+            display: inline-block
+            cursor: pointer
+            transition: background 0.3s ease
+            font-size: 14px
+        input[type=file]
+            position: absolute
+            z-index: -1
+            opacity: 0
+            display: block
+            width: 0
+            height: 0
+
+    .btn
+        margin-top: 20px
         box-shadow: 0px 11px 20px 0px #ff750166
         background: linear-gradient(159deg, rgba(255,187,1,1) 15%, rgba(255,117,1,1) 100%)
         border-radius: $border-radius
