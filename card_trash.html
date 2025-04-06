@@ -106,7 +106,7 @@
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
-                            alert("Произошла ошибка при отправке.");
+                            alert(`Произошла ошибка при отправке. {error}`);
                             throw error
                         });
 
