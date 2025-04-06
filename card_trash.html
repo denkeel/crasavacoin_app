@@ -87,6 +87,8 @@
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
 
+                    const file = fileInput.files[0];
+
                     if (!file) {
                         alert("Пожалуйста, выберите файл.");
                         return;
