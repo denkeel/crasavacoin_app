@@ -117,11 +117,17 @@
                                 .then(data => {
                                     window.location.href = "/crasavacoin_app/";
                                 })
+                                .catch(error => {
+                                    console.error("Ошибка:", error);
+                                    alert(`Произошла ошибка при отправке. {error}`);
+                                    location.reload();
+                                    throw error
+                                });
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
                             alert(`Произошла ошибка при отправке. {error}`);
-                            window.location.href = "/crasavacoin_app/";
+                            location.reload();
                             throw error
                         });
 
