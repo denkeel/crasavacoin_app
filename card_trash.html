@@ -105,7 +105,7 @@
                             return response.json();
                         })
                         .then(data => {
-                            alert(`${data}`);
+                            alert(`${JSON.stringify(data)}`);
                             // throw new Error(`Ошибка: ${JSON.stringify(data)}`)
                         })
                         .catch(error => {
