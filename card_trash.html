@@ -86,7 +86,7 @@
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    const fileInput = document.getElementById('fileInput'); // ✅ FIXED
+                    const fileInput = document.getElementById('fileInput');
                     const file = fileInput.files[0];
 
                     if (!file) {
@@ -104,7 +104,8 @@
                             return response.json();  // Assuming the response is JSON, adjust as needed
                         })
                         .then(data => {
-                            console.log('Data received:', data);
+                            console.log('Data received:', );
+                            alert(`${data}`);
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
