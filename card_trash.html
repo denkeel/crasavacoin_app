@@ -83,7 +83,6 @@
                 };
 
                 const button = document.querySelector('.btn');
-
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
 
@@ -94,49 +93,51 @@
                         return;
                     }
 
-                    const formData = new FormData();
-                    formData.append('caption', `Заменить мусорный пакет. ${current_user.name} +60`);
-                    formData.append('photo', file);
+                    const reader = new FileReader();
 
-                    fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
-                        method: 'POST',
-                        body: formData
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({
-                                        'action': 1,
-                                        'coins': 60,
-                                        'user_id': current_user.id
-                                    })
-                                })
-                                    .then(response => {
-                                        window.location.href = "/crasavacoin_app/";
-                                    })
-                                    .catch(error => {
-                                        console.error("Ошибка:", error);
-                                        alert(`Произошла ошибка при отправке. ${error}`);
-                                        location.reload();
-                                        // throw error
-                                    });
-                            }
+                    reader.onload = function (event) {
+                        const base64String = event.target.result.split(',')[1];
+
+                        const formData = new FormData();
+                        formData.append('caption', `Заменить мусорный пакет. ${current_user.name} +60`);
+                        formData.append('photo', base64String);
+                        fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
+                            method: 'POST',
+                            body: formData
                         })
-                        .catch(error => {
-                            console.error("Ошибка:", error);
-                            alert(`Произошла ошибка при отправке. ${error}`);
-                            location.reload();
-                            // throw error
-                        });
+                            .then(response => {
+                                if (response.ok) {
+                                    fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            'action': 1,
+                                            'coins': 60,
+                                            'user_id': current_user.id
+                                        })
+                                    })
+                                        .then(response => {
+                                            window.location.href = "/crasavacoin_app/";
+                                        })
+                                        .catch(error => {
+                                            console.error("Ошибка:", error);
+                                            alert(`Произошла ошибка при отправке. ${error}`);
+                                            location.reload();
+                                        });
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Ошибка:", error);
+                                alert(`Произошла ошибка при отправке. ${error}`);
+                                location.reload();
+                            });
+                    };
 
+                    reader.readAsDataURL(file);
                 });
-
-                // document.getElementById("tg-data").textContent += JSON.stringify(current_user, null, 2)
-            })
+            });
         </script>
 
 </html>
