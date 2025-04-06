@@ -96,7 +96,7 @@
                     const reader = new FileReader();
 
                     reader.onload = function (event) {
-                        const base64String = event.target.result.split(',')[1];
+                        const base64File = reader.result;
 
                         const payload = {
                             caption: `Заменить мусорный пакет. ${current_user.name} +60`,
