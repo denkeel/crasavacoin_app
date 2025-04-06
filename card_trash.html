@@ -94,40 +94,54 @@
                         return;
                     }
 
-                    const reader = new FileReader();
-
-                    reader.onload = function (event) {
-                        const base64File = reader.result;
-
-                        const payload = {
-                            caption: `Заменить мусорный пакет. ${current_user.name} +60`,
-                            photo: base64File
-                        };
-
-                        // const formData = new FormData();
-                        // formData.append('image', file); // Добавляем изображение
-                        // formData.append('json', JSON.stringify(payload)); // Добавляем JSON-данные
-
-                        fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
-                            method: 'GET',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            // body: JSON.stringify(payload)
-                            // body: {}
-                            // body: formData
+                    fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
+                        method: 'GET'
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Ошибка: ${response.statusText}`);
+                            }
+                            return response.json();  // Assuming the response is JSON, adjust as needed
                         })
-                            .then(response => {
-                                // alert(`${JSON.stringify(response.json())}`);
-                            })
-                            .catch(error => {
-                                console.error("Ошибка:", error);
-                                alert(`Произошла ошибка при отправке файла 5. ${error}` + event.target.error);
-                                location.reload();
-                            });
-                    };
+                        .then(data => {
+                            console.log('Data received:', data);
+                        })
+                        .catch(error => {
+                            console.error("Ошибка:", error);
+                            alert(`Произошла ошибка при отправке файла. ${error.message}`);
+                            location.reload();
+                        });
 
-                    reader.readAsDataURL(file);
+
+                    // const base64File = reader.result;
+
+                    // const payload = {
+                    //     caption: `Заменить мусорный пакет. ${current_user.name} +60`,
+                    //     photo: base64File
+                    // };
+
+                    // const formData = new FormData();
+                    // formData.append('image', file); // Добавляем изображение
+                    // formData.append('json', JSON.stringify(payload)); // Добавляем JSON-данные
+
+                    // fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
+                    //     method: 'GET',
+                    //     headers: {
+                    //         'Content-Type': 'application/json'
+                    //     },
+                    //     // body: JSON.stringify(payload)
+                    //     // body: {}
+                    //     // body: formData
+                    // })
+                    //     .then(response => {
+                    //         // alert(`${JSON.stringify(response.json())}`);
+                    //     })
+                    //     .catch(error => {
+                    //         console.error("Ошибка:", error);
+                    //         alert(`Произошла ошибка при отправке файла 5. ${error}` + event.target.error);
+                    //         location.reload();
+                    //     });
+
                 });
             });
 
