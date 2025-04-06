@@ -84,15 +84,15 @@
 
                 const button = document.querySelector('.btn');
                 button.addEventListener('click', function (e) {
-                    e.preventDefault();
+                    // e.preventDefault();
 
-                    const fileInput = document.getElementById('fileInput');
-                    const file = fileInput.files[0];
+                    // const fileInput = document.getElementById('fileInput');
+                    // const file = fileInput.files[0];
 
-                    if (!file) {
-                        alert("Пожалуйста, выберите файл.");
-                        return;
-                    }
+                    // if (!file) {
+                    //     alert("Пожалуйста, выберите файл.");
+                    //     return;
+                    // }
 
                     fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
                         method: 'GET'
@@ -104,7 +104,6 @@
                             return response.json();  // Assuming the response is JSON, adjust as needed
                         })
                         .then(data => {
-                            console.log('Data received:', );
                             alert(`${data}`);
                         })
                         .catch(error => {
