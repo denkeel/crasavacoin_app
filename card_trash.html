@@ -107,32 +107,28 @@
                                 alert(`Произошла ошибка при отправке. ${response.json()}`);
                                 location.reload();
                                 throw new Error();
-                            }
-                            fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    'action': 1,
-                                    'coins': 60,
-                                    'user_id': current_user.id
+                            } else {
+                                fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        'action': 1,
+                                        'coins': 60,
+                                        'user_id': current_user.id
+                                    })
                                 })
-                            })
-                                .then(response => {
-                                    if (!response.ok) {
-                                        alert(`Произошла ошибка при отправке. ${response.json()}`);
+                                    .then(response => {
+                                        window.location.href = "/crasavacoin_app/";
+                                    })
+                                    .catch(error => {
+                                        console.error("Ошибка:", error);
+                                        alert(`Произошла ошибка при отправке. ${error}`);
                                         location.reload();
-                                        throw new Error();
-                                    }
-                                    window.location.href = "/crasavacoin_app/";
-                                })
-                                .catch(error => {
-                                    console.error("Ошибка:", error);
-                                    alert(`Произошла ошибка при отправке. ${error}`);
-                                    location.reload();
-                                    throw error
-                                });
+                                        throw error
+                                    });
+                            }
                         })
                         .catch(error => {
                             console.error("Ошибка:", error);
