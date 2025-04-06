@@ -98,14 +98,18 @@
                     reader.onload = function (event) {
                         const base64String = event.target.result.split(',')[1];
 
-                        const formData = new FormData();
-                        formData.append('caption', `Заменить мусорный пакет. ${current_user.name} +60`);
-                        formData.append('photo', base64String);
+                        const payload = {
+                            caption: `Заменить мусорный пакет. ${current_user.name} +60`,
+                            photo: base64File
+                        };
                         fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
                             method: 'POST',
-                            body: formData
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
                         })
-                        .then(response => {
+                            .then(response => {
                                 alert(`${JSON.stringify(response.json())}`);
                                 // if (response.ok) {
                                 //     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
