@@ -62,7 +62,7 @@
   transition: background 0.3s ease;
   font-size: 14px;
 }
-.container_card .photo-upload input[type=file] {
+.container_card .photo-upload input {
   position: absolute;
   z-index: -1;
   opacity: 0;
