@@ -105,7 +105,8 @@
                             method: 'POST',
                             body: formData
                         })
-                            .then(response => {
+                        .then(response => {
+                                alert(`${JSON.stringify(response.json())}`);
                                 // if (response.ok) {
                                 //     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
                                 //         method: 'POST',
