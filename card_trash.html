@@ -119,7 +119,7 @@
                             alert('Image sent!');
                         } catch (err) {
                             console.error('Upload failed:', err);
-                            alert('Failed to send image.');
+                            alert(`Failed to send image:\n${err.message}`);
                         }
                     };
 
