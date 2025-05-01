@@ -83,45 +83,63 @@
                 };
 
                 const button = document.querySelector('.btn');
-                button.addEventListener('click', function (e) {
+
+                function readFileAsDataURL(file) {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            if (typeof reader.result === 'string' && reader.result.includes(',')) {
+                                resolve(reader.result);
+                            } else {
+                                reject(new Error('Unexpected file data format'));
+                            }
+                        };
+                        reader.onerror = () => {
+                            // reader.error.name might be e.g. 'NotReadableError'
+                            reject(new Error(reader.error?.message || reader.error?.name || 'File read failed'));
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                button.addEventListener('click', async (e) => {
                     const file = fileInput.files[0];
                     if (!file) {
                         alert('Please choose a file first.');
                         return;
                     }
 
-                    const reader = new FileReader();
+                    let dataUrl;
+                    try {
+                        dataUrl = await readFileAsDataURL(file);
+                    } catch (readErr) {
+                        alert(`Could not read file:\n${readErr.message}`);
+                        return;
+                    }
 
-                    reader.onerror = () => {
-                        alert(`File read error:\n${reader.error?.message || 'Unknown error'}`);
-                    };
+                    // strip the "data:*;base64," prefix
+                    const base64 = dataUrl.split(',')[1];
+                    const payload = { caption: 'пиривет', photo: base64 };
 
-                    reader.onload = async () => {
-                        try {
-                            const dataUrl = reader.result;
-                            const base64 = dataUrl.split(',')[1];
-                            const payload = { caption: 'пиривет', photo: base64 };
-
-                            const response = await fetch(
-                                'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
-                                {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify(payload),
-                                }
-                            );
-
-                            if (response.ok) {
-                                alert('Image sent successfully!');
-                            } else {
-                                alert(`Failed to send image:\nServer responded with ${response.status} ${response.statusText}`);
+                    try {
+                        const response = await fetch(
+                            'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
+                            {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload),
                             }
-                        } catch (err) {
-                            alert(`Failed to send image:\n${err.message}`);
-                        }
-                    };
+                        );
 
-                    reader.readAsDataURL(file);
+                        if (response.ok) {
+                            alert('Image sent successfully!');
+                        } else {
+                            alert(`Server error:\n${response.status} ${response.statusText}`);
+                        }
+                    } catch (netErr) {
+                        // this catches network/CORS/etc.
+                        alert(`Network error:\n${netErr.message}`);
+                    }
                     // e.preventDefault();
 
                     // const fileInput = document.getElementById('fileInput');
