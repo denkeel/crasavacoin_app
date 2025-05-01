@@ -86,43 +86,41 @@
                 button.addEventListener('click', function (e) {
                     const file = fileInput.files[0];
                     if (!file) {
-                        alert('Пожалуйста, выберите файл.');
+                        alert('Please choose a file first.');
                         return;
                     }
 
                     const reader = new FileReader();
+
+                    reader.onerror = () => {
+                        alert(`File read error:\n${reader.error?.message || 'Unknown error'}`);
+                    };
+
                     reader.onload = async () => {
                         try {
-                            // reader.result is a data URL: 'data:<mime>;base64,<data>'
                             const dataUrl = reader.result;
-                            // Strip off the "data:*;base64," prefix:
                             const base64 = dataUrl.split(',')[1];
-
-                            const payload = {
-                                caption: 'пиривет',
-                                photo: base64
-                            };
+                            const payload = { caption: 'пиривет', photo: base64 };
 
                             const response = await fetch(
                                 'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
                                 {
                                     method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
                                     body: JSON.stringify(payload),
                                 }
-                            ).then(data => {
-                                alert(`${JSON.stringify(data)}`);
-                            });
+                            );
 
-                            const result = await response.json();
-                            console.log('Upload successful:', result);
-                            alert('Image sent!');
+                            if (response.ok) {
+                                alert('Image sent successfully!');
+                            } else {
+                                alert(`Failed to send image:\nServer responded with ${response.status} ${response.statusText}`);
+                            }
                         } catch (err) {
-                            console.error('Upload failed:', err);
                             alert(`Failed to send image:\n${err.message}`);
                         }
                     };
 
-                    // Read the file as a data URL
                     reader.readAsDataURL(file);
                     // e.preventDefault();
 
