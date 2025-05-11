@@ -95,9 +95,8 @@
   font-size: 19px;
   text-decoration: none;
   transform: scale(1);
-  transition: none;
 }
-.container_card:active {
+.container_card.pressed {
   animation: pressQuick 0.2s ease-out;
 }
 
