@@ -116,9 +116,13 @@
                 }
 
                 button.addEventListener('click', async (e) => {
+                    if (button.disabled) return; // Защита от двойных нажатий
+                    button.disabled = true;
+
                     const file = fileInput.files[0];
                     if (!file) {
                         alert('Please choose a file first.');
+                        button.disabled = false;
                         return;
                     }
 
@@ -127,6 +131,7 @@
                         base64 = await readFileAsDataURL(file);
                     } catch (e) {
                         alert(`Could not read file:\n${e.message}`);
+                        button.disabled = false;
                         return;
                     }
 
@@ -142,15 +147,16 @@
 
                         if (res.ok) {
                             alert('Image sent successfully!');
+                            window.location.href = "/crasavacoin_app/";
                         } else {
                             alert(`Server error:\n${res.status} ${res.statusText}`);
+                            button.disabled = false;
                         }
                     } catch (e) {
-                        // This will now only fire on genuine network drops,
-                        // since the gateway will respond to preflight correctly.
                         alert(`Network error:\n${e.message}`);
+                        button.disabled = false;
                     }
-                    
+
                     // e.preventDefault();
 
                     // const fileInput = document.getElementById('fileInput');
