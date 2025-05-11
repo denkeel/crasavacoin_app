@@ -83,10 +83,11 @@
   font-weight: 800;
   font-size: 19px;
   text-decoration: none;
-  transition: scale 0.3s ease;
+  transition: transform 0.2s ease;
+  transform: none;
 }
 .container_card .btn:hover, .container_card .btn:active {
-  scale: 95%;
+  transform: scale(0.95);
 }
 
 body {
