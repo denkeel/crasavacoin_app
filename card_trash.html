@@ -118,11 +118,7 @@
                 button.addEventListener('click', async (e) => {
                     if (button.disabled) return; // Защита от двойных нажатий
 
-                    button.classList.remove('pressed');
-                    void button.offsetWidth;           
-                    button.classList.add('pressed');
-
-                    button.disabled = true;
+                    button.disabled = true; // Отключаем кнопку
 
                     const file = fileInput.files[0];
                     if (!file) {
@@ -151,101 +147,42 @@
                         );
 
                         if (res.ok) {
-                            // alert('Image sent successfully!');
-                            window.location.href = "/crasavacoin_app/";
+                            // Первый запрос прошел успешно, выполняем второй
+                            try {
+                                const secondRes = await fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        'action': 1,
+                                        'coins': 60,
+                                        'user_id': current_user.id
+                                    })
+                                });
+
+                                if (secondRes.ok) {
+                                    // Второй запрос тоже успешен
+                                    window.location.href = "/crasavacoin_app/"; // Перенаправление
+                                } else {
+                                    alert(`Server error during coin update:\n${secondRes.status} ${secondRes.statusText}`);
+                                    button.disabled = false;
+                                }
+                            } catch (error) {
+                                console.error("Error in second request:", error);
+                                alert(`Произошла ошибка при начислении баллов. ${error}`);
+                                button.disabled = false;
+                            }
                         } else {
-                            alert(`Server error:\n${res.status} ${res.statusText}`);
+                            alert(`Server error in first request:\n${res.status} ${res.statusText}`);
                             button.disabled = false;
                         }
                     } catch (e) {
-                        alert(`Network error:\n${e.message}`);
+                        alert(`Network error in first request:\n${e.message}`);
                         button.disabled = false;
                     }
-
-                    // e.preventDefault();
-
-                    // const fileInput = document.getElementById('fileInput');
-                    // const file = fileInput.files[0];
-
-                    // if (!file) {
-                    //     alert("Пожалуйста, выберите файл.");
-                    //     return;
-                    // }
-
-                    // fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
-                    //     method: 'POST',
-                    //     body: {}
-                    // })
-                    //     .then(response => {
-                    //         // if (!response.ok) {
-                    //         //     throw new Error(`Ошибка: ${JSON.stringify(response.json())}`);
-                    //         // }
-                    //         return response.json();
-                    //     })
-                    //     .then(data => {
-                    //         alert(`${JSON.stringify(data)}`);
-                    //         // throw new Error(`Ошибка: ${JSON.stringify(data)}`)
-                    //     })
-                    //     .catch(error => {
-                    //         console.error("Ошибка:", error);
-                    //         alert(`Произошла ошибка в запросе. ${error}`);
-                    //         location.reload();
-                    //     });
-
-
-                    // const base64File = reader.result;
-
-                    // const payload = {
-                    //     caption: `Заменить мусорный пакет. ${current_user.name} +60`,
-                    //     photo: base64File
-                    // };
-
-                    // const formData = new FormData();
-                    // formData.append('image', file); // Добавляем изображение
-                    // formData.append('json', JSON.stringify(payload)); // Добавляем JSON-данные
-
-                    // fetch('https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report', {
-                    //     method: 'GET',
-                    //     headers: {
-                    //         'Content-Type': 'application/json'
-                    //     },
-                    //     // body: JSON.stringify(payload)
-                    //     // body: {}
-                    //     // body: formData
-                    // })
-                    //     .then(response => {
-                    //         // alert(`${JSON.stringify(response.json())}`);
-                    //     })
-                    //     .catch(error => {
-                    //         console.error("Ошибка:", error);
-                    //         alert(`Произошла ошибка при отправке файла 5. ${error}` + event.target.error);
-                    //         location.reload();
-                    //     });
-
                 });
             });
-
-            // if (response.ok) {
-            //     fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify({
-            //             'action': 1,
-            //             'coins': 60,
-            //             'user_id': current_user.id
-            //         })
-            //     })
-            //         .then(response => {
-            //             window.location.href = "/crasavacoin_app/";
-            //         })
-            //         .catch(error => {
-            //             console.error("Ошибка:", error);
-            //             alert(`Произошла при начислении баллов. ${error}`);
-            //             location.reload();
-            //         });
-            // }
         </script>
 
 </html>
