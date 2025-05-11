@@ -117,9 +117,11 @@
 
                 button.addEventListener('click', async (e) => {
                     if (button.disabled) return; // Защита от двойных нажатий
-                    button.classList.remove('pressed'); // Сброс, если клик быстро повторяется
-                    void button.offsetWidth;            // Трюк: перезапуск анимации
+
+                    button.classList.remove('pressed');
+                    void button.offsetWidth;           
                     button.classList.add('pressed');
+
                     button.disabled = true;
 
                     const file = fileInput.files[0];
@@ -144,7 +146,7 @@
                             {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ caption: 'пиривет', photo: base64 }),
+                                body: JSON.stringify({ caption: `Заменить мусорный пакет. ${current_user.name} +60`, photo: base64 }),
                             }
                         );
 
