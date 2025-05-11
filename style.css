@@ -70,6 +70,17 @@
   width: 0;
   height: 0;
 }
+@keyframes pressQuick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .container_card .btn {
   margin-top: 20px;
   box-shadow: 0px 11px 20px 0px rgba(255, 117, 1, 0.4);
@@ -83,11 +94,11 @@
   font-weight: 800;
   font-size: 19px;
   text-decoration: none;
-  transition: transform 0.2s ease;
-  transform: none;
+  transform: scale(1);
+  transition: none;
 }
-.container_card .btn:hover, .container_card .btn:active {
-  transform: scale(0.95);
+.container_card:active {
+  animation: pressQuick 0.2s ease-out;
 }
 
 body {

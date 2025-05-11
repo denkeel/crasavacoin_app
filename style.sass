@@ -69,6 +69,14 @@ $h1: 26px
             width: 0
             height: 0
 
+    @keyframes pressQuick
+        0%
+            transform: scale(1)
+        50%
+            transform: scale(0.95)
+        100%
+            transform: scale(1)
+
     .btn
         margin-top: 20px
         box-shadow: 0px 11px 20px 0px #ff750166
@@ -82,10 +90,11 @@ $h1: 26px
         font-weight: 800
         font-size: 19px
         text-decoration: none
-        transition: transform 0.2s ease
-        transform: none
-        &:hover, &:active
-            transform: scale(0.95)
+        transform: scale(1)
+        transition: none
+
+    &:active
+        animation: pressQuick 0.2s ease-out
 
 body
     font-family: "M PLUS Rounded 1c", sans-serif
