@@ -117,9 +117,9 @@
 
                 button.addEventListener('click', async (e) => {
                     if (button.disabled) return; // Защита от двойных нажатий
-                    btn.classList.remove('pressed'); // Сброс, если клик быстро повторяется
-                    void btn.offsetWidth;            // Трюк: перезапуск анимации
-                    btn.classList.add('pressed');
+                    button.classList.remove('pressed'); // Сброс, если клик быстро повторяется
+                    void button.offsetWidth;            // Трюк: перезапуск анимации
+                    button.classList.add('pressed');
                     button.disabled = true;
 
                     const file = fileInput.files[0];
