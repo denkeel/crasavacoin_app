@@ -23,7 +23,7 @@
 
         <h1 class="title">Разгрузить посудомойку</h1>
 
-        <div class="medium">Вынуть чистую сухую посуду из посудомойки и поставить на полки ✨</div>
+        <div class="medium">Вынуть чистую сухую посуду из посудомойки(<b>которая в коливинге в общей зоне</b>) и поставить на полки ✨</div>
 
         <div class="coins-wrap">
             <div class="plus-text">
@@ -122,7 +122,7 @@
 
                     const file = fileInput.files[0];
                     if (!file) {
-                        alert('Please choose a file first.');
+                        alert('Сначала нужно загрузить фото');
                         button.disabled = false;
                         return;
                     }
@@ -174,11 +174,11 @@
                                 button.disabled = false;
                             }
                         } else {
-                            alert(`Server error in first request:\n${res.status} ${res.statusText}`);
+                            alert(`Проблема с файлом. Попробуй другое фото:\n${res.status} ${res.statusText}`);
                             button.disabled = false;
                         }
                     } catch (e) {
-                        alert(`Network error in first request:\n${e.message}`);
+                        alert(`Проблема с файлом. Попробуй другое фото:\n${e.message}`);
                         button.disabled = false;
                     }
                 })
