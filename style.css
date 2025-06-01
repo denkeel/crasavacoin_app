@@ -90,6 +90,25 @@
   transform: scale(0.95);
 }
 
+#loadingOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-container {
+  text-align: center;
+}
+.loader-container .loader {
+  width: 64px;
+  height: 64px;
+}
+
 body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   display: flex;

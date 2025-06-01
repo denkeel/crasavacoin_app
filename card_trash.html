@@ -45,6 +45,12 @@
         <a href="#" class="btn">
             Выполнено
         </a>
+
+        <div id="loadingOverlay">
+            <div class="loader-container">
+                <img src="https://i.gifer.com/ZZ5H.gif" alt="Загрузка..." class="loader" />
+            </div>
+        </div>
     </div>
 
     <body>
@@ -83,6 +89,7 @@
                 };
 
                 const button = document.querySelector('.btn');
+                const overlay = document.getElementById('loadingOverlay');
 
                 // fetch(
                 //     'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
@@ -150,6 +157,7 @@
                 button.addEventListener('click', async (e) => {
                     e.preventDefault(); // чтобы не срабатывала перезагрузка из-за href="#"
                     button.textContent = 'Идет загрузка...';
+                    overlay.style.display = 'flex';
 
                     if (button.disabled) return; // Защита от двойных нажатий
 
