@@ -194,10 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusElement.classList.add('golden');
                         userStatusElement.textContent = 'Золотой статус';
                         break;
-                    case 'silver':
-                        userStatusElement.classList.add('silver');
-                        userStatusElement.textContent = 'Серебряный статус';
-                        break;
                     default:
                         userStatusElement.classList.add('bronze');
                         userStatusElement.textContent = 'Базовый статус';
