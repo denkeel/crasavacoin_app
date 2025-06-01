@@ -24,7 +24,6 @@ white_list = [
     'Discord_0'.toLowerCase(),
     'Ramashi1989'.toLowerCase(),
     'Viktoriasssss'.toLowerCase(),
-    'Consstellation'.toLowerCase(),
     'Nikit0c3'.toLowerCase(),
     'arhishaa'.toLowerCase(),
 ];
