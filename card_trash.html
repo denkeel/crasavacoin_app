@@ -116,6 +116,9 @@
                 }
 
                 button.addEventListener('click', async (e) => {
+                    e.preventDefault(); // чтобы не срабатывала перезагрузка из-за href="#"
+                    button.textContent = 'Идет загрузка...';
+                    
                     if (button.disabled) return; // Защита от двойных нажатий
 
                     button.disabled = true; // Отключаем кнопку
