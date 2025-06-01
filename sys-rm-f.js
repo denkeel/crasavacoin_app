@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!(current_user.id.toString() in data.users) || block_list.includes(current_user.id)) {
                 fetch(`https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/users/${current_user.id}.json`, {
                     method: 'PUT',
-                    body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}", "login": "${current_user.login}"}`,
+                    body: `{"photo_url": "${current_user.photo_url}", "user_name": "${current_user.name}", "login": "${current_user.login}", "status": "bronze"}`,
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -163,17 +163,50 @@ document.addEventListener("DOMContentLoaded", function () {
                         user_id: userId,
                         user_name: user.user_name,
                         user_photo: user.photo_url,
+                        status: user.status,
                         coins
                     };
                 })
                 .sort((a, b) => b.coins - a.coins)
                 .map((user, index) => ({
                     index: index + 1,
+                    user_id: user.user_id,
                     user_name: user.user_name,
                     user_photo: user.user_photo,
+                    status: user.status,
                     sum_coins: user.coins
                 }));
 
+            // обновление статуса
+            const userStatus = data.users[current_user.id.toString()]?.status || 'bronze';
+
+            const userStatusElement = document.querySelector('.current-status');
+
+            function updateUserStatus(status) {
+                userStatusElement.classList.remove('bronze', 'golden', 'silver');
+
+                switch (status) {
+                    case 'bronze':
+                        userStatusElement.classList.add('bronze');
+                        userStatusElement.textContent = 'Бронзовый статус';
+                        break;
+                    case 'golden':
+                        userStatusElement.classList.add('golden');
+                        userStatusElement.textContent = 'Золотой статус';
+                        break;
+                    case 'silver':
+                        userStatusElement.classList.add('silver');
+                        userStatusElement.textContent = 'Серебряный статус';
+                        break;
+                    default:
+                        userStatusElement.classList.add('bronze');
+                        userStatusElement.textContent = 'Базовый статус';
+                }
+            }
+
+            updateUserStatus(userStatus);
+
+            // обновление баланса
             const balanceElement = document.querySelector('.balance');
 
             balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
@@ -204,8 +237,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 nameDiv.classList.add('name');
                 nameDiv.textContent = user.user_name;
                 const userStatusDiv = document.createElement('div');
-                userStatusDiv.classList.add('user-status', 'bronze');
-                userStatusDiv.textContent = 'Бронзовый статус';
+                switch (user.status) {
+                    case 'bronze':
+                        userStatusDiv.classList.add('user-status', 'bronze');
+                        userStatusDiv.textContent = 'Бронзовый статус';
+                        break;
+                    case 'golden':
+                        userStatusDiv.classList.add('user-status', 'golden');
+                        userStatusDiv.textContent = 'Золотой статус';
+                        break;
+                    default:
+                        userStatusDiv.classList.add('user-status', 'bronze');
+                        userStatusDiv.textContent = 'Базовый статус';
+                        break;
+                }
 
                 nameWrapDiv.appendChild(nameDiv);
                 nameWrapDiv.appendChild(userStatusDiv);

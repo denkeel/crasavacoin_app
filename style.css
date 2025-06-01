@@ -143,6 +143,9 @@ body {
 .current-status.bronze {
   color: #FF6D00;
 }
+.current-status.golden {
+  color: #FFBB01;
+}
 
 .coin img {
   width: 68%;
@@ -245,8 +248,8 @@ body {
 .leaderboard .leaders-wrap .leaders .row .emerald {
   color: green;
 }
-.leaderboard .leaders-wrap .leaders .row .gold {
-  color: gold;
+.leaderboard .leaders-wrap .leaders .row .golden {
+  color: #FFBB01;
 }
 .leaderboard .leaders-wrap .leaders .row .bronze {
   color: #FF6D00;
