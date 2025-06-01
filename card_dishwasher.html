@@ -46,6 +46,13 @@
         <a href="#" class="btn">
             Выполнено
         </a>
+
+        <div id="loadingOverlay" style="display: none;">
+            <!-- <div id="loadingOverlay"> -->
+            <div class="loader-container">
+                <img src="dog_loader.gif" alt="Загрузка..." class="loader" />
+            </div>
+        </div>
     </div>
 
     <body>
@@ -100,26 +107,43 @@
                 //         alert('Preflight failed:\n' + err.message);
                 //     });
 
-                function readFileAsDataURL(file) {
+                function compressImageToBase64(file, options = {}) {
+                    const { maxWidth = 1024, maxHeight = 1024, mimeType = 'image/jpeg', quality = 0.7 } = options;
                     return new Promise((resolve, reject) => {
-                        const fr = new FileReader();
-                        fr.onload = () => {
-                            const s = fr.result;
-                            if (typeof s === 'string' && s.includes(',')) {
-                                resolve(s.split(',')[1]);
-                            } else {
-                                reject(new Error('Bad file data'));
-                            }
+                        const reader = new FileReader();
+                        reader.onerror = () => reject(new Error());
+                        reader.onload = () => {
+                            const dataUrl = reader.result;
+                            if (typeof dataUrl !== 'string' || !dataUrl.includes(',')) return reject(new Error());
+                            const img = new Image();
+                            img.onerror = () => reject(new Error());
+                            img.onload = () => {
+                                let w = img.width;
+                                let h = img.height;
+                                if (w > maxWidth || h > maxHeight) {
+                                    const ratio = Math.min(maxWidth / w, maxHeight / h);
+                                    w = Math.round(w * ratio);
+                                    h = Math.round(h * ratio);
+                                }
+                                const canvas = document.createElement('canvas');
+                                canvas.width = w;
+                                canvas.height = h;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, w, h);
+                                const compressed = canvas.toDataURL(mimeType, mimeType === 'image/jpeg' ? quality : undefined);
+                                resolve(compressed.split(',')[1]);
+                            };
+                            img.src = dataUrl;
                         };
-                        fr.onerror = () => reject(new Error(fr.error?.message || 'Read failed'));
-                        fr.readAsDataURL(file);
+                        reader.readAsDataURL(file);
                     });
                 }
 
                 button.addEventListener('click', async (e) => {
                     e.preventDefault(); // чтобы не срабатывала перезагрузка из-за href="#"
                     button.textContent = 'Идет загрузка...';
-                    
+                    overlay.style.display = 'flex';
+
                     if (button.disabled) return; // Защита от двойных нажатий
 
                     button.disabled = true; // Отключаем кнопку
@@ -133,7 +157,7 @@
 
                     let base64;
                     try {
-                        base64 = await readFileAsDataURL(file);
+                        base64 = await compressImageToBase64(file);
                     } catch (e) {
                         alert(`Could not read file:\n${e.message}`);
                         button.disabled = false;
@@ -159,7 +183,7 @@
                                         'Content-Type': 'application/json'
                                     },
                                     body: JSON.stringify({
-                                        'action': 1,
+                                        'action': 2,
                                         'coins': 250,
                                         'user_id': current_user.id
                                     })
