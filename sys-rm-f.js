@@ -246,6 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     queuedClicks++;
                 }
             });
+
+            playAnimation(1);
         })
 });
 // } catch (error) {
