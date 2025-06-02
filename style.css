@@ -146,6 +146,9 @@ body {
 .current-status.golden {
   color: #FFBB01;
 }
+.current-status.platinum {
+  color: #C0CDD5;
+}
 
 .coin img {
   width: 68%;
@@ -253,6 +256,9 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .bronze {
   color: #FF6D00;
+}
+.leaderboard .leaders-wrap .leaders .row .platinum {
+  color: #C0CDD5;
 }
 
 .tasks {

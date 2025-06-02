@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const userStatusElement = document.querySelector('.current-status');
 
             function updateUserStatus(status) {
-                userStatusElement.classList.remove('bronze', 'golden', 'platinum');
+                // userStatusElement.classList.remove('bronze', 'golden', 'platinum');
 
                 switch (status) {
                     case 'bronze':
