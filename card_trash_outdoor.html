@@ -153,6 +153,7 @@
                         alert('Сначала нужно загрузить фото');
                         button.disabled = false;
                         overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
                         return;
                     }
 
@@ -163,6 +164,7 @@
                         alert(`Could not read file:\n${e.message}`);
                         button.disabled = false;
                         overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
                         return;
                     }
 
@@ -199,22 +201,26 @@
                                     alert(`Server error during coin update:\n${secondRes.status} ${secondRes.statusText}`);
                                     button.disabled = false;
                                     overlay.style.display = 'none';
+                                    button.textContent = 'Выполнено';
                                 }
                             } catch (error) {
                                 console.error("Error in second request:", error);
                                 alert(`Произошла ошибка при начислении баллов. ${error}`);
                                 button.disabled = false;
                                 overlay.style.display = 'none';
+                                button.textContent = 'Выполнено';
                             }
                         } else {
                             alert(`Проблема с файлом. Попробуй другое фото:\n${res.status} ${res.statusText}`);
                             button.disabled = false;
                             overlay.style.display = 'none';
+                            button.textContent = 'Выполнено';
                         }
                     } catch (e) {
                         alert(`Проблема с файлом. Попробуй другое фото:\n${e.message}`);
                         button.disabled = false;
                         overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
                     }
                 })
             });
