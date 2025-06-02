@@ -194,9 +194,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusElement.classList.add('golden');
                         userStatusElement.textContent = 'Золотой статус';
                         break;
+                    case 'platinum':
+                        userStatusElement.classList.add('platinum');
+                        userStatusElement.textContent = 'Платиновый статус';
+                        break;
                     default:
                         userStatusElement.classList.add('bronze');
-                        userStatusElement.textContent = 'Базовый статус';
+                        userStatusElement.textContent = 'Бронзовый статус';
                 }
             }
 
@@ -242,9 +246,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusDiv.classList.add('user-status', 'golden');
                         userStatusDiv.textContent = 'Золотой статус';
                         break;
+                    case 'platinum':
+                        userStatusDiv.classList.add('user-status', 'platinum');
+                        userStatusDiv.textContent = 'Платиновый статус';
+                        break;
                     default:
                         userStatusDiv.classList.add('user-status', 'bronze');
-                        userStatusDiv.textContent = 'Базовый статус';
+                        userStatusDiv.textContent = 'Бронзовый статус';
                         break;
                 }
 
