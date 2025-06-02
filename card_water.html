@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Баланс</title>
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Pixelify+Sans:wght@400..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="height: 100%; overflow-y: hidden;">
+    <div class="container_card">
+
+        <!-- <pre id="tg-data"
+            style="white-space: pre-wrap; word-wrap: break-word; background: #f5f5f5; padding: 10px; border: 1px solid #ccc;"></pre> -->
+
+        <h1 class="title">Вылить воду из сушилки</h1>
+
+        <div class="medium">Вылить воду из сушилки<b>в ванной в коливинге</b></div>
+
+        <div class="coins-wrap">
+            <div class="plus-text">
+                +50
+            </div>
+            <div class="coins coin-img">
+                <img style="z-index: 3" src="coin/0001.avif" alt="Монета">
+                <img style="z-index: 2" src="coin/0001.avif" alt="Монета">
+                <img style="z-index: 1" src="coin/0001.avif" alt="Монета">
+            </div>
+        </div>
+
+        <div class="photo-upload" onclick="document.getElementById('fileInput').click()">
+            <input type="file" name="file" id="fileInput" style="display: none;" onchange="updateFileName(this)">
+            <span class="input-file-btn" id="fileLabel">Выберите файл</span>
+        </div>
+
+
+        <a href="#" class="btn">
+            Выполнено
+        </a>
+
+        <div id="loadingOverlay" style="display: none;">
+            <!-- <div id="loadingOverlay"> -->
+            <div class="loader-container">
+                <img src="dog_loader.gif" alt="Загрузка..." class="loader" />
+            </div>
+        </div>
+    </div>
+
+    <body>
+        <script>
+            function updateFileName(input) {
+                const fileLabel = document.getElementById('fileLabel');
+                if (input.files && input.files[0]) {
+                    fileLabel.textContent = input.files[0].name;
+                }
+            }
+
+            const tg_app = window.Telegram.WebApp
+
+            tg_app.setHeaderColor('#FFFFFF')
+            tg_app.setBackgroundColor('#FFFFFF')
+            tg_app.setBottomBarColor('#FFFFFF')
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const backButton = tg_app.BackButton;
+                backButton.show()
+                backButton.onClick(() => {
+                    backButton.hide();
+
+                    window.location.href = "/crasavacoin_app/";
+                });
+
+                const current_user = {
+                    id: tg_app.initDataUnsafe.user.id,
+                    name: tg_app.initDataUnsafe.user.first_name,
+                    photo_url: tg_app.initDataUnsafe.user.photo_url,
+                };
+
+                const safe_area_data = {
+                    safeAreaInset: tg_app.safeAreaInset,
+                    contentSafeAreaInset: tg_app.contentSafeAreaInset
+                };
+
+                const button = document.querySelector('.btn');
+                const overlay = document.getElementById('loadingOverlay');
+
+                // fetch(
+                //     'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
+                //     { method: 'OPTIONS' }
+                // )
+                //     .then(r => {
+                //         alert(
+                //             'preflight ACAO: ' +
+                //             r.headers.get('access-control-allow-origin') ||
+                //             '‹missing›'
+                //         );
+                //     })
+                //     .catch(err => {
+                //         alert('Preflight failed:\n' + err.message);
+                //     });
+
+                // function readFileAsDataURL(file) {
+                //     return new Promise((resolve, reject) => {
+                //         const fr = new FileReader();
+                //         fr.onload = () => {
+                //             const s = fr.result;
+                //             if (typeof s === 'string' && s.includes(',')) {
+                //                 resolve(s.split(',')[1]);
+                //             } else {
+                //                 reject(new Error('Bad file data'));
+                //             }
+                //         };
+                //         fr.onerror = () => reject(new Error(fr.error?.message || 'Read failed'));
+                //         fr.readAsDataURL(file);
+                //     });
+                // }
+
+                function compressImageToBase64(file, options = {}) {
+                    const { maxWidth = 1024, maxHeight = 1024, mimeType = 'image/jpeg', quality = 0.7 } = options;
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onerror = () => reject(new Error());
+                        reader.onload = () => {
+                            const dataUrl = reader.result;
+                            if (typeof dataUrl !== 'string' || !dataUrl.includes(',')) return reject(new Error());
+                            const img = new Image();
+                            img.onerror = () => reject(new Error());
+                            img.onload = () => {
+                                let w = img.width;
+                                let h = img.height;
+                                if (w > maxWidth || h > maxHeight) {
+                                    const ratio = Math.min(maxWidth / w, maxHeight / h);
+                                    w = Math.round(w * ratio);
+                                    h = Math.round(h * ratio);
+                                }
+                                const canvas = document.createElement('canvas');
+                                canvas.width = w;
+                                canvas.height = h;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, w, h);
+                                const compressed = canvas.toDataURL(mimeType, mimeType === 'image/jpeg' ? quality : undefined);
+                                resolve(compressed.split(',')[1]);
+                            };
+                            img.src = dataUrl;
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                button.addEventListener('click', async (e) => {
+                    e.preventDefault(); // чтобы не срабатывала перезагрузка из-за href="#"
+                    button.textContent = 'Идет загрузка...';
+                    overlay.style.display = 'flex';
+
+                    if (button.disabled) return; // Защита от двойных нажатий
+
+                    button.disabled = true; // Отключаем кнопку
+
+                    const file = fileInput.files[0];
+                    if (!file) {
+                        alert('Сначала нужно загрузить фото');
+                        button.disabled = false;
+                        overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
+                        return;
+                    }
+
+                    let base64;
+                    try {
+                        // base64 = await readFileAsDataURL(file);
+                        base64 = await compressImageToBase64(file);
+                    } catch (e) {
+                        alert(`Could not read file:\n${e.message}`);
+                        button.disabled = false;
+                        overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
+                        return;
+                    }
+
+                    try {
+                        const res = await fetch(
+                            'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
+                            {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ caption: `Вылить воду из сушилки. ${current_user.name} +50`, photo: base64 }),
+                            }
+                        );
+
+                        if (res.ok) {
+                            // Первый запрос прошел успешно, выполняем второй
+                            try {
+                                const secondRes = await fetch('https://crasavacoin-default-rtdb.europe-west1.firebasedatabase.app/tasks.json', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        'action': 7,
+                                        'coins': 50,
+                                        'user_id': current_user.id,
+                                        'timestamp': Date.now()
+                                    })
+                                });
+
+                                if (secondRes.ok) {
+                                    // Второй запрос тоже успешен
+                                    window.location.href = "/crasavacoin_app/"; // Перенаправление
+                                } else {
+                                    alert(`Server error during coin update:\n${secondRes.status} ${secondRes.statusText}`);
+                                    button.disabled = false;
+                                    overlay.style.display = 'none';
+                                    button.textContent = 'Выполнено';
+                                }
+                            } catch (error) {
+                                console.error("Error in second request:", error);
+                                alert(`Произошла ошибка при начислении баллов. ${error}`);
+                                button.disabled = false;
+                                overlay.style.display = 'none';
+                                button.textContent = 'Выполнено';
+                            }
+                        } else {
+                            alert(`Проблема с файлом. Попробуй другое фото:\n${res.status} ${res.statusText}`);
+                            button.disabled = false;
+                            overlay.style.display = 'none';
+                            button.textContent = 'Выполнено';
+                        }
+                    } catch (e) {
+                        alert(`Проблема с файлом. Попробуй другое фото:\n${e.message}`);
+                        button.disabled = false;
+                        overlay.style.display = 'none';
+                        button.textContent = 'Выполнено';
+                    }
+                })
+            });
+        </script>
+
+</html>
