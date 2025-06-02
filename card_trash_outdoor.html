@@ -90,6 +90,7 @@
                 };
 
                 const button = document.querySelector('.btn');
+                const overlay = document.getElementById('loadingOverlay');
 
                 // fetch(
                 //     'https://d5du1sjf5ctcjd49l11o.z7jmlavt.apigw.yandexcloud.net/tg-send-report',
@@ -151,6 +152,7 @@
                     if (!file) {
                         alert('Сначала нужно загрузить фото');
                         button.disabled = false;
+                        overlay.style.display = 'none';
                         return;
                     }
 
@@ -160,6 +162,7 @@
                     } catch (e) {
                         alert(`Could not read file:\n${e.message}`);
                         button.disabled = false;
+                        overlay.style.display = 'none';
                         return;
                     }
 
@@ -195,19 +198,23 @@
                                 } else {
                                     alert(`Server error during coin update:\n${secondRes.status} ${secondRes.statusText}`);
                                     button.disabled = false;
+                                    overlay.style.display = 'none';
                                 }
                             } catch (error) {
                                 console.error("Error in second request:", error);
                                 alert(`Произошла ошибка при начислении баллов. ${error}`);
                                 button.disabled = false;
+                                overlay.style.display = 'none';
                             }
                         } else {
                             alert(`Проблема с файлом. Попробуй другое фото:\n${res.status} ${res.statusText}`);
                             button.disabled = false;
+                            overlay.style.display = 'none';
                         }
                     } catch (e) {
                         alert(`Проблема с файлом. Попробуй другое фото:\n${e.message}`);
                         button.disabled = false;
+                        overlay.style.display = 'none';
                     }
                 })
             });
