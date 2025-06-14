@@ -156,7 +156,7 @@ body {
   font-weight: 800;
 }
 .current-status.bronze {
-  color: #2B32DB;
+  color: #2b54db;
 }
 .current-status.golden {
   color: #FFBB01;
@@ -191,7 +191,7 @@ body {
 }
 .balance .currency {
   font-size: 42px;
-  color: #2B32DB;
+  color: #2b54db;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
 }
@@ -274,7 +274,7 @@ body {
   color: #FFBB01;
 }
 .leaderboard .leaders-wrap .leaders .row .bronze {
-  color: #2B32DB;
+  color: #2b54db;
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
   color: #aacadf;
