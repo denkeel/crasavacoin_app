@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // обновление баланса
             const balanceElement = document.querySelector('.balance');
 
-            balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0}<span class="balance-small">,00</span> <span class="currency">CRC</span>`;
+            balanceElement.innerHTML = `${userCoins.hasOwnProperty(current_user.id) ? userCoins[current_user.id] : 0}<span class="balance-small">,00</span> <span class="currency">STC</span>`;
 
             const leadersContainer = document.querySelector('.leaders');
 
