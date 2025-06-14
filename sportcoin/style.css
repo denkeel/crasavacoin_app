@@ -166,12 +166,12 @@ body {
 }
 
 .coin img {
-  width: 68%;
+  width: 48%;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   padding: 0;
-  margin: 0;
+  margin: 15px;
   box-shadow: 0px 8px 20px 0px rgba(40, 74, 185, 0.5);
   border-radius: 800px;
 }
