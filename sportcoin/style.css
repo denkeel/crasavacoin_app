@@ -156,7 +156,7 @@ body {
   font-weight: 800;
 }
 .current-status.bronze {
-  color: #3911e8;
+  color: #2B32DB;
 }
 .current-status.golden {
   color: #FFBB01;
@@ -170,6 +170,10 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 13px 76px rgba(40, 74, 185, 0.567);
+  border-radius: 800px;
 }
 
 .coin-img {
@@ -187,7 +191,7 @@ body {
 }
 .balance .currency {
   font-size: 42px;
-  color: #3911e8;
+  color: #2B32DB;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
 }
@@ -270,7 +274,7 @@ body {
   color: #FFBB01;
 }
 .leaderboard .leaders-wrap .leaders .row .bronze {
-  color: #3911e8;
+  color: #2B32DB;
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
   color: #aacadf;
@@ -291,7 +295,7 @@ body {
 }
 .tasks .task {
   text-decoration: none;
-  box-shadow: 0px 11px 20px 0px rgba(9, 1, 255, 0.4);
+  box-shadow: 0px 11px 20px 0px rgba(1, 141, 255, 0.4);
   background: linear-gradient(159deg, #01aaff 15%, #013cff 100%);
   color: #fff;
   padding: 22px 7px;
