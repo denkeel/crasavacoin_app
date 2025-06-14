@@ -59,30 +59,15 @@ if (!white_list.includes(current_user.login.toLowerCase())) {
 // tg_app.setBottomBarColor('#FFFFFF')
 // tg_app.requestFullscreen()
 document.addEventListener("DOMContentLoaded", function () {
-    const totalFrames = 60;
-    const baseFrameRate = 60;
-    const baseInterval = 1000 / baseFrameRate;
-    let isAnimating = false;
-    let queuedClicks = 0;
-    function playAnimation(speedFactor) {
-        let currentFrame = 1;
-        const interval = baseInterval / speedFactor;
+    function playAnimation() {
         const img = document.getElementById('animation');
-        const timer = setInterval(() => {
-            const frameStr = String(currentFrame).padStart(4, '0');
-            img.src = `coin/${frameStr}.avif`;
-            currentFrame++;
-            if (currentFrame > totalFrames) {
-                clearInterval(timer);
-                if (queuedClicks > 0) {
-                    const newSpeed = 1 + queuedClicks;
-                    queuedClicks = 0;
-                    playAnimation(newSpeed);
-                } else {
-                    isAnimating = false;
-                }
-            }
-        }, interval);
+
+        img.classList.add('bounce');
+
+        img.addEventListener('animationend', function handler() {
+            img.classList.remove('bounce');
+            img.removeEventListener('animationend', handler);
+        });
     }
 
     const backButton = tg_app.BackButton;
@@ -287,15 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             document.getElementById('animation').addEventListener('click', () => {
-                if (!isAnimating) {
-                    isAnimating = true;
-                    playAnimation(1);
-                } else {
-                    queuedClicks++;
-                }
+                playAnimation();
             });
 
-            playAnimation(1);
+            playAnimation();
         })
 });
 // } catch (error) {

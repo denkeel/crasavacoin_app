@@ -1,4 +1,4 @@
-$primary-color: #FF6D00
+$primary-color: #3911e8
 $golden: #FFBB01
 $platinum: #aacadf
 $text-dark: #333
@@ -17,6 +17,17 @@ $h1: 26px
     src: url("fonts/minecraft-1-1.woff2") format("woff2")
     font-weight: 900
     font-style: normal
+
+@keyframes bounce
+    0%
+        transform: scale(1)
+    50%
+        transform: scale(1.2)
+    100%
+        transform: scale(1)
+
+.bounce
+    animation: bounce 0.6s ease-in-out forwards
 
 .container_card
     @extend .container

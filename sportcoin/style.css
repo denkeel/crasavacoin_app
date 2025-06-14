@@ -10,6 +10,21 @@
   font-weight: 900;
   font-style: normal;
 }
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bounce {
+  animation: bounce 0.6s ease-in-out forwards;
+}
+
 .container_card {
   display: flex;
   flex-direction: column;
@@ -141,7 +156,7 @@ body {
   font-weight: 800;
 }
 .current-status.bronze {
-  color: #FF6D00;
+  color: #3911e8;
 }
 .current-status.golden {
   color: #FFBB01;
@@ -172,7 +187,7 @@ body {
 }
 .balance .currency {
   font-size: 42px;
-  color: #FF6D00;
+  color: #3911e8;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
 }
@@ -255,7 +270,7 @@ body {
   color: #FFBB01;
 }
 .leaderboard .leaders-wrap .leaders .row .bronze {
-  color: #FF6D00;
+  color: #3911e8;
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
   color: #aacadf;
