@@ -32,8 +32,9 @@ body {
   z-index: 1000;
 }
 .overlay-button svg {
+  position: absolute;
   top: 46%;
-  right: 50%;
+  right: 55%;
   width: 14px;
   height: 20px;
   fill: none;
