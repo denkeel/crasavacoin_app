@@ -71,7 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const backButton = tg_app.BackButton;
-    backButton.hide()
+    backButton.show()
+    backButton.onClick(() => {
+        backButton.hide();
+
+        window.location.href = "/crasavacoin_app/";
+    });
 
     fetch('https://sportcoin-c6cf4-default-rtdb.europe-west1.firebasedatabase.app/.json')
         .then(response => response.json())
@@ -258,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const coinSmallDiv = document.createElement('div');
                 coinSmallDiv.classList.add('coin-small', 'coin-img');
                 const coinImg = document.createElement('img');
-                coinImg.src = 'coin/0001.avif';
+                coinImg.src = 'coin/sportcoin.avif';
                 coinImg.alt = 'Монета';
                 coinSmallDiv.appendChild(coinImg);
 

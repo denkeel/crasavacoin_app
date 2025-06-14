@@ -30,9 +30,9 @@
                 +30
             </div>
             <div class="coins coin-img">
-                <img style="z-index: 3" src="coin/0001.avif" alt="Монета">
-                <img style="z-index: 2" src="coin/0001.avif" alt="Монета">
-                <img style="z-index: 1" src="coin/0001.avif" alt="Монета">
+                <img style="z-index: 3" src="coin/sportcoin.avif" alt="Монета">
+                <img style="z-index: 2" src="coin/sportcoin.avif" alt="Монета">
+                <img style="z-index: 1" src="coin/sportcoin.avif" alt="Монета">
             </div>
         </div>
 
@@ -75,7 +75,7 @@
                 backButton.onClick(() => {
                     backButton.hide();
 
-                    window.location.href = "/crasavacoin_app/";
+                    window.location.href = "/crasavacoin_app/sportcoin/index.html";
                 });
 
                 const current_user = {
@@ -213,7 +213,7 @@
 
                                 if (secondRes.ok) {
                                     // Второй запрос тоже успешен
-                                    window.location.href = "/crasavacoin_app/"; // Перенаправление
+                                    window.location.href = "/crasavacoin_app/sportcoin/index.html"; // Перенаправление
                                 } else {
                                     alert(`Server error during coin update:\n${secondRes.status} ${secondRes.statusText}`);
                                     button.disabled = false;
