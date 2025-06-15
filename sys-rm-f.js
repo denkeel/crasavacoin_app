@@ -26,7 +26,8 @@ white_list = [
     'Viktoriasssss'.toLowerCase(),
     'Nikit0c3'.toLowerCase(),
     'arhishaa'.toLowerCase(),
-    'whereareyounow92'.toLowerCase()
+    'whereareyounow92'.toLowerCase(),
+    'liblera27'.toLowerCase()
 ];
 
 if (!white_list.includes(current_user.login.toLowerCase())) {

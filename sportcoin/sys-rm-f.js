@@ -7,52 +7,54 @@ const current_user = {
     login: tg_app.initDataUnsafe.user.username,
 };
 
-white_list = [
-    'denkeel'.toLowerCase(),
-    'ofmaryone'.toLowerCase(),
-    'Danila_Botalov'.toLowerCase(),
-    'mmagee21'.toLowerCase(),
-    'liblera27'.toLowerCase(),
-    'Key_SHEM'.toLowerCase(),
-    'cicdpipe'.toLowerCase(),
-    'otnkojx'.toLowerCase(),
-    'AnetCh'.toLowerCase(),
-    'whereareyounow92'.toLowerCase(),
-    'iveresh'.toLowerCase(),
-    'dimapitoff'.toLowerCase(),
-    'lovemelovemeagain'.toLowerCase(),
-    'Discord_0'.toLowerCase(),
-    'Ramashi1989'.toLowerCase(),
-    'Viktoriasssss'.toLowerCase(),
-    'Nikit0c3'.toLowerCase(),
-    'arhishaa'.toLowerCase(),
-];
+// white_list = [
+//     'denkeel'.toLowerCase(),
+//     'ofmaryone'.toLowerCase(),
+//     'Danila_Botalov'.toLowerCase(),
+//     'mmagee21'.toLowerCase(),
+//     'liblera27'.toLowerCase(),
+//     'Key_SHEM'.toLowerCase(),
+//     'cicdpipe'.toLowerCase(),
+//     'otnkojx'.toLowerCase(),
+//     'AnetCh'.toLowerCase(),
+//     'whereareyounow92'.toLowerCase(),
+//     'iveresh'.toLowerCase(),
+//     'dimapitoff'.toLowerCase(),
+//     'lovemelovemeagain'.toLowerCase(),
+//     'Discord_0'.toLowerCase(),
+//     'Ramashi1989'.toLowerCase(),
+//     'Viktoriasssss'.toLowerCase(),
+//     'Nikit0c3'.toLowerCase(),
+//     'arhishaa'.toLowerCase(),
+//     'whereareyounow92'.toLowerCase(),
+//     'liblera27'.toLowerCase()
+// ];
 
-if (!white_list.includes(current_user.login.toLowerCase())) {
-    document.body.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: black;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 10vw;
-                font-weight: bold;
-                text-transform: uppercase;
-                font-family: Arial, sans-serif;
-                z-index: 9999;
-                text-align: center;
-            ">
-                403
-                ACCESS DENIED
-            </div>
-            `;
-}
+// if (!white_list.includes(current_user.login.toLowerCase())) {
+//     document.body.innerHTML = `
+//             <div style="
+//                 position: fixed;
+//                 top: 0;
+//                 left: 0;
+//                 width: 100%;
+//                 height: 100%;
+//                 background-color: black;
+//                 color: white;
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 font-size: 10vw;
+//                 font-weight: bold;
+//                 text-transform: uppercase;
+//                 font-family: Arial, sans-serif;
+//                 z-index: 9999;
+//                 text-align: center;
+//             ">
+//                 403
+//                 ACCESS DENIED
+//             </div>
+//             `;
+// }
 
 // tg_app.setHeaderColor('#FFFFFF')
 // tg_app.setBackgroundColor('#FFFFFF')
