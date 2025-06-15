@@ -58,7 +58,6 @@
   font-size: 32px;
   margin-right: 12px;
   transform: skewX(-5deg);
-  letter-spacing: 2px;
 }
 .container_card .coins-wrap .coins {
   display: flex;
@@ -191,11 +190,10 @@ body {
 
 .balance {
   margin: 10px;
-  font-size: 44px;
+  font-size: 43px;
   font-family: "Futura", sans-serif;
   font-weight: 900;
   transform: skewX(-5deg);
-  letter-spacing: 1px;
 }
 .balance .balance-small {
   font-size: 20px;
@@ -207,7 +205,6 @@ body {
   color: #62CBFA;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
-  letter-spacing: 0px;
 }
 
 .leaderboard {
@@ -275,7 +272,6 @@ body {
   font-family: "Futura", sans-serif;
   font-weight: 900;
   transform: skewX(-5deg);
-  letter-spacing: 1px;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
