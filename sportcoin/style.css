@@ -195,7 +195,7 @@ body {
   font-family: "Futura", sans-serif;
   font-weight: 900;
   transform: skewX(-5deg);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .balance .balance-small {
   font-size: 20px;
@@ -275,7 +275,7 @@ body {
   font-family: "Futura", sans-serif;
   font-weight: 900;
   transform: skewX(-5deg);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
