@@ -10,6 +10,10 @@
   font-weight: 900;
   font-style: normal;
 }
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -153,6 +157,7 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  overflow-x: hidden;
 }
 
 .container, .container_card {
@@ -161,6 +166,7 @@ body {
   padding: 55px 20px 10px 20px;
   padding-bottom: 270px;
   max-width: 500px;
+  overflow-x: hidden;
 }
 
 .title {

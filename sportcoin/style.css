@@ -50,6 +50,7 @@
   font-weight: 900 !important;
   font-size: 32px;
   margin-right: 12px;
+  font-style: italic;
 }
 .container_card .coins-wrap .coins {
   display: flex;
@@ -182,14 +183,17 @@ body {
 
 .balance {
   margin: 10px;
-  font-size: 35px;
-  font-family: "Minecraft", sans-serif;
+  font-size: 43px;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
+  font-style: italic;
 }
 .balance .balance-small {
   font-size: 12px;
+  font-style: italic;
 }
 .balance .currency {
+  font-style: normal;
   font-size: 42px;
   color: #62CBFA;
   font-family: "M PLUS Rounded 1c", sans-serif;
@@ -258,8 +262,9 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
-  font-family: "Minecraft", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
+  font-style: italic;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
