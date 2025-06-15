@@ -19,6 +19,7 @@
   font-weight: 900;
   font-style: normal;
   font-stretch: condensed;
+  font-synthesis: none;
 }
 @keyframes bounce {
   0% {
@@ -57,7 +58,7 @@
 }
 .container_card .coins-wrap .plus-text {
   font-family: "Futura", sans-serif;
-  font-weight: 900 !important;
+  font-stretch: condensed;
   font-size: 32px;
   margin-right: 12px;
 }
@@ -194,7 +195,7 @@ body {
   margin: 10px;
   font-size: 43px;
   font-family: "Futura", sans-serif;
-  font-weight: 900;
+  font-stretch: condensed;
 }
 .balance .balance-small {
   font-size: 20px;
@@ -270,7 +271,7 @@ body {
 .leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
   font-family: "Futura", sans-serif;
-  font-weight: 900;
+  font-stretch: condensed;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
