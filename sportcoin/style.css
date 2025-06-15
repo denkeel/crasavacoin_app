@@ -16,6 +16,9 @@
   src: url("fonts/futuraboldcondensedoriginal.woff") format("woff");
   src: url("fonts/futuraboldcondensedoriginal.otf") format("opentype");
   src: url("fonts/FuturaBoldCondensedOriginal.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: condensed;
 }
 @keyframes bounce {
   0% {
