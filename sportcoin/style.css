@@ -57,7 +57,6 @@
   font-weight: 900 !important;
   font-size: 32px;
   margin-right: 12px;
-  transform: skewX(-5deg);
 }
 .container_card .coins-wrap .coins {
   display: flex;
@@ -193,11 +192,9 @@ body {
   font-size: 43px;
   font-family: "Futura", sans-serif;
   font-weight: 900;
-  transform: skewX(-5deg);
 }
 .balance .balance-small {
   font-size: 20px;
-  transform: skewX(-5deg);
 }
 .balance .currency {
   font-style: normal;
@@ -271,7 +268,6 @@ body {
   margin-right: 5px;
   font-family: "Futura", sans-serif;
   font-weight: 900;
-  transform: skewX(-5deg);
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
