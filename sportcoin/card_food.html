@@ -27,7 +27,7 @@
 
         <div class="coins-wrap">
             <div class="plus-text">
-                +900
+                +1000
             </div>
             <div class="coins coin-img">
                 <img style="z-index: 3" src="coin/sportcoin.avif" alt="Монета">
@@ -160,9 +160,8 @@
                             {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ caption: `💪🏻 SPORTCOIN
-Отличный здоровый хавчик, ${current_user.name} 👏🏻
-+900`, photo: base64 }),
+                                body: JSON.stringify({ caption: `🥊 Отличный здоровый прием пищи, ${current_user.name} 👏🏻
++1000`, photo: base64 }),
                             }
                         );
 
@@ -176,7 +175,7 @@
                                     },
                                     body: JSON.stringify({
                                         'action': 2,
-                                        'coins': 900,
+                                        'coins': 1000,
                                         'user_id': current_user.id,
                                         'timestamp': Date.now()
                                     })
