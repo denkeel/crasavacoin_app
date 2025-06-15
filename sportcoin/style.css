@@ -46,7 +46,7 @@
   align-items: center;
 }
 .container_card .coins-wrap .plus-text {
-  font-family: "Minecraft", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900 !important;
   font-size: 32px;
   margin-right: 12px;
@@ -183,7 +183,7 @@ body {
 
 .balance {
   margin: 10px;
-  font-size: 43px;
+  font-size: 44px;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-style: italic;
