@@ -11,15 +11,11 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Futura";
+  font-family: "FuturaBoldCondensed";
   src: url("fonts/FuturaBoldCondensedOriginal.eot");
   src: url("fonts/futuraboldcondensedoriginal.woff") format("woff");
   src: url("fonts/futuraboldcondensedoriginal.otf") format("opentype");
   src: url("fonts/FuturaBoldCondensedOriginal.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: condensed;
-  font-synthesis: none;
 }
 @keyframes bounce {
   0% {
@@ -57,8 +53,7 @@
   align-items: center;
 }
 .container_card .coins-wrap .plus-text {
-  font-family: "Futura", sans-serif;
-  font-stretch: condensed;
+  font-family: "FuturaBoldCondensed", sans-serif;
   font-size: 32px;
   margin-right: 12px;
 }
@@ -194,8 +189,7 @@ body {
 .balance {
   margin: 10px;
   font-size: 43px;
-  font-family: "Futura", sans-serif;
-  font-stretch: condensed;
+  font-family: "FuturaBoldCondensed", sans-serif;
 }
 .balance .balance-small {
   font-size: 20px;
@@ -270,8 +264,7 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
-  font-family: "Futura", sans-serif;
-  font-stretch: condensed;
+  font-family: "FuturaBoldCondensed", sans-serif;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;
