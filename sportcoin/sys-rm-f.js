@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 switch (status) {
                     case 'bronze':
                         userStatusElement.classList.add('bronze');
-                        userStatusElement.textContent = 'Бронзовый статус';
+                        userStatusElement.textContent = 'Базовый статус';
                         break;
                     case 'golden':
                         userStatusElement.classList.add('golden');
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         break;
                     default:
                         userStatusElement.classList.add('bronze');
-                        userStatusElement.textContent = 'Бронзовый статус';
+                        userStatusElement.textContent = 'Базовый статус';
                 }
             }
 
