@@ -12,7 +12,10 @@
 }
 @font-face {
   font-family: "Futura";
+  src: url("fonts/FuturaBoldCondensedOriginal.eot");
   src: url("fonts/futuraboldcondensedoriginal.woff") format("woff");
+  src: url("fonts/futuraboldcondensedoriginal.otf") format("opentype");
+  src: url("fonts/FuturaBoldCondensedOriginal.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }
@@ -56,7 +59,7 @@
   font-weight: 900 !important;
   font-size: 32px;
   margin-right: 12px;
-  font-style: italic;
+  transform: skewX(-5deg);
   letter-spacing: 2px;
 }
 .container_card .coins-wrap .coins {
@@ -193,12 +196,12 @@ body {
   font-size: 44px;
   font-family: "Futura", sans-serif;
   font-weight: 900;
-  font-style: italic;
+  transform: skewX(-5deg);
   letter-spacing: 2px;
 }
 .balance .balance-small {
   font-size: 20px;
-  font-style: italic;
+  transform: skewX(-5deg);
 }
 .balance .currency {
   font-style: normal;
@@ -273,7 +276,7 @@ body {
   margin-right: 5px;
   font-family: "Futura", sans-serif;
   font-weight: 900;
-  font-style: italic;
+  transform: skewX(-5deg);
   letter-spacing: 2px;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
