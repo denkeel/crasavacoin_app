@@ -185,11 +185,11 @@ body {
 
 .balance {
   margin: 10px;
-  font-size: 43px;
+  font-size: 41px;
   font-family: "FuturaBoldCondensed", sans-serif;
 }
 .balance .balance-small {
-  font-size: 20px;
+  font-size: 22px;
 }
 .balance .currency {
   font-style: normal;
