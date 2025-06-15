@@ -10,6 +10,12 @@
   font-weight: 900;
   font-style: normal;
 }
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/futuraboldcondensedoriginal.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -46,11 +52,12 @@
   align-items: center;
 }
 .container_card .coins-wrap .plus-text {
-  font-family: "Roboto", sans-serif;
+  font-family: "Futura", sans-serif;
   font-weight: 900 !important;
   font-size: 32px;
   margin-right: 12px;
   font-style: italic;
+  letter-spacing: 2px;
 }
 .container_card .coins-wrap .coins {
   display: flex;
@@ -184,12 +191,13 @@ body {
 .balance {
   margin: 10px;
   font-size: 44px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Futura", sans-serif;
   font-weight: 900;
   font-style: italic;
+  letter-spacing: 2px;
 }
 .balance .balance-small {
-  font-size: 12px;
+  font-size: 20px;
   font-style: italic;
 }
 .balance .currency {
@@ -198,6 +206,7 @@ body {
   color: #62CBFA;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 800;
+  letter-spacing: 0px;
 }
 
 .leaderboard {
@@ -262,9 +271,10 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .points {
   margin-right: 5px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Futura", sans-serif;
   font-weight: 900;
   font-style: italic;
+  letter-spacing: 2px;
 }
 .leaderboard .leaders-wrap .leaders .row .coin-small {
   margin: 0 0 -3px 0;

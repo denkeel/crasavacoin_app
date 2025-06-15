@@ -19,6 +19,12 @@ $h1: 26px
     font-weight: 900
     font-style: normal
 
+@font-face
+    font-family: "Futura"
+    src: url("fonts/futuraboldcondensedoriginal.woff") format("woff")
+    font-weight: 900
+    font-style: normal
+
 @keyframes bounce
     0%
         transform: scale(1)
@@ -49,11 +55,12 @@ $h1: 26px
         justify-content: center
         align-items: center
         .plus-text
-            font-family: "Roboto", sans-serif
+            font-family: "Futura", sans-serif
             font-weight: 900 !important
             font-size: 32px
             margin-right: 12px
             font-style: italic
+            letter-spacing: 2px
         .coins
             display: flex
         img
@@ -167,11 +174,12 @@ body
 .balance
     margin: 10px
     font-size: 44px
-    font-family: "Roboto", sans-serif
+    font-family: "Futura", sans-serif
     font-weight: 900
     font-style: italic
+    letter-spacing: 2px
     .balance-small
-        font-size: 12px
+        font-size: 20px
         font-style: italic
     .currency
         font-style: normal
@@ -179,6 +187,7 @@ body
         color: $primary-color
         font-family: "M PLUS Rounded 1c", sans-serif
         font-weight: 800
+        letter-spacing: 0px
 
 .leaderboard
     margin-top: 35px
@@ -232,9 +241,10 @@ body
                         font-size: 10px
                 .points
                     margin-right: 5px
-                    font-family: "Roboto", sans-serif
+                    font-family: "Futura", sans-serif
                     font-weight: 900
                     font-style: italic
+                    letter-spacing: 2px
                 .coin-small
                     margin: 0 0 -3px 0
                     img
