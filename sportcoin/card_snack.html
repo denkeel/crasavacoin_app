@@ -27,7 +27,7 @@
 
         <div class="coins-wrap">
             <div class="plus-text">
-                +500
+                +50
             </div>
             <div class="coins coin-img">
                 <img style="z-index: 3" src="coin/sportcoin.avif" alt="Монета">
@@ -161,7 +161,7 @@
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ caption: `🥊 Отличный здоровый перекус, ${current_user.name} 👏🏻
-+500 STC`, photo: base64 }),
++50 STC`, photo: base64 }),
                             }
                         );
 
@@ -175,7 +175,7 @@
                                     },
                                     body: JSON.stringify({
                                         'action': 4,
-                                        'coins': 500,
+                                        'coins': 50,
                                         'user_id': current_user.id,
                                         'timestamp': Date.now()
                                     })
