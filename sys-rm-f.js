@@ -13,7 +13,7 @@ white_list = [
     'Danila_Botalov'.toLowerCase(),
     'mmagee21'.toLowerCase(),
     'liblera27'.toLowerCase(),
-    'Key_SHEM'.toLowerCase(),
+    'ekaterina_ermolaevaa'.toLowerCase(),
     'cicdpipe'.toLowerCase(),
     'otnkojx'.toLowerCase(),
     'AnetCh'.toLowerCase(),
