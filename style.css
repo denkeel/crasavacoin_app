@@ -190,9 +190,18 @@ body {
   color: #FFBB01;
 }
 .current-status.platinum {
-  color: #aacadf;
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .current-status.sapphire {
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.current-status.ruby {
   background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
   -webkit-background-clip: text;
           background-clip: text;
@@ -307,9 +316,18 @@ body {
   color: #FF6D00;
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
-  color: #aacadf;
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .leaderboard .leaders-wrap .leaders .row .sapphire {
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.leaderboard .leaders-wrap .leaders .row .ruby {
   background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
   -webkit-background-clip: text;
           background-clip: text;
