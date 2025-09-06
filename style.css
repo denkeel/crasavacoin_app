@@ -190,13 +190,13 @@ body {
   color: #FFBB01;
 }
 .current-status.platinum {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: radial-gradient(circle at 20% 20%, rgb(255, 255, 255), transparent 12%), linear-gradient(179deg, #b3bfcc 0%, #a7c4e1 35%, #8596a6 65%, #dcdcdc 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .current-status.sapphire {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: radial-gradient(circle at 80% 20%, rgba(140, 200, 255, 0.18), transparent 18%), linear-gradient(135deg, #001029 0%, #003A66 5%, #0A74FF 70%, #6FC8FF 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -316,13 +316,13 @@ body {
   color: #FF6D00;
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: radial-gradient(circle at 20% 20%, rgb(255, 255, 255), transparent 12%), linear-gradient(179deg, #b3bfcc 0%, #a7c4e1 35%, #8596a6 65%, #dcdcdc 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .leaderboard .leaders-wrap .leaders .row .sapphire {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: radial-gradient(circle at 80% 20%, rgba(140, 200, 255, 0.18), transparent 18%), linear-gradient(135deg, #001029 0%, #003A66 5%, #0A74FF 70%, #6FC8FF 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
