@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Minecraft";
   src: url("fonts/minecraft-1-1.eot");
@@ -182,7 +183,7 @@ body {
   font-size: 16px;
   font-weight: 800;
 }
-.current-status.bronze {
+.current-status.bronzeнг {
   color: #FF6D00;
 }
 .current-status.golden {
@@ -190,6 +191,12 @@ body {
 }
 .current-status.platinum {
   color: #aacadf;
+}
+.current-status.sapphire {
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .coin img {
@@ -301,6 +308,12 @@ body {
 }
 .leaderboard .leaders-wrap .leaders .row .platinum {
   color: #aacadf;
+}
+.leaderboard .leaders-wrap .leaders .row .sapphire {
+  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tasks {
