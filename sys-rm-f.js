@@ -26,7 +26,6 @@ white_list = [
     'Viktoriasssss'.toLowerCase(),
     'Nikit0c3'.toLowerCase(),
     'arhishaa'.toLowerCase(),
-    'whereareyounow92'.toLowerCase(),
     'liblera27'.toLowerCase(),
     'ucmvll'.toLowerCase()
 ];
