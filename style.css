@@ -202,7 +202,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .current-status.ruby {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: linear-gradient(90deg, #346bd0 0%, #007BFF 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -328,7 +328,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .leaderboard .leaders-wrap .leaders .row .ruby {
-  background: linear-gradient(90deg, #002366 0%, #007BFF 100%);
+  background: linear-gradient(90deg, #346bd0 0%, #007BFF 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
