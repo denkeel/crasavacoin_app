@@ -200,9 +200,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusElement.classList.add('platinum');
                         userStatusElement.textContent = 'Платиновый статус';
                         break;
+                    case 'sapphire':
+                        userStatusElement.classList.add('sapphire');
+                        userStatusElement.textContent = 'Сапфировый статус';
+                        break;
+                    case 'ruby':
+                        userStatusElement.classList.add('ruby');
+                        userStatusElement.textContent = 'Рубиновый статус';
+                        break;
                     default:
-                        userStatusElement.classList.add('bronze');
-                        userStatusElement.textContent = 'Бронзовый статус';
+                        // userStatusElement.classList.add('bronze');
+                        userStatusElement.textContent = 'Ошибка статуса...';
                 }
             }
 
@@ -252,9 +260,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusDiv.classList.add('user-status', 'platinum');
                         userStatusDiv.textContent = 'Платиновый статус';
                         break;
+                    case 'sapphire':
+                        userStatusDiv.classList.add('user-status', 'sapphire');
+                        userStatusDiv.textContent = 'Сапфировый статус';
+                        break;
+                    case 'ruby':
+                        userStatusDiv.classList.add('user-status', 'ruby');
+                        userStatusDiv.textContent = 'Рубиновый статус';
+                        break;
                     default:
-                        userStatusDiv.classList.add('user-status', 'bronze');
-                        userStatusDiv.textContent = 'Бронзовый статус';
+                        // userStatusDiv.classList.add('user-status', 'bronze');
+                        userStatusDiv.textContent = 'Ошибка статуса...';
                         break;
                 }
 
