@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // статусы
                 level = Number(status)
                 userStatusElement.classList.add('user-status', `level-${level}`);
-                userStatusElement.textContent = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
+                userStatusElement.innerHTML = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
 
             }
 
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // статусы
                 level = Number(user.status)
                 userStatusDiv.classList.add('user-status', `level-${level}`);
-                userStatusDiv.textContent = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
+                userStatusDiv.innerHTML = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
 
                 nameWrapDiv.appendChild(nameDiv);
                 nameWrapDiv.appendChild(userStatusDiv);
