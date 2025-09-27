@@ -29,6 +29,11 @@
   animation: bounce 0.6s ease-in-out forwards;
 }
 
+.status-arrows i {
+  font-style: italic;
+  font-weight: bold;
+}
+
 .container_card {
   display: flex;
   flex-direction: column;
