@@ -183,8 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         userStatusElement.textContent = 'Базовый статус';
                         break;
                     default:
-                        userStatusElement.classList.add('user-status', `level-${user.status}`);
-                        userStatusElement.innerHTML = `Уровень ${user.status} <span class="status-arrows">${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}</span>`;
+                        userStatusElement.classList.add('user-status', `level-${status}`);
+                        userStatusElement.innerHTML = `Уровень ${status} <span class="status-arrows">${Array(status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}</span>`;
                 }
             }
 
