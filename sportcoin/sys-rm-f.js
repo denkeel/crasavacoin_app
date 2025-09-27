@@ -179,20 +179,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 switch (status) {
                     case 'bronze':
-                        userStatusElement.classList.add('bronze');
+                        userStatusElement.classList.add('basic');
                         userStatusElement.textContent = 'Базовый статус';
-                        break;
-                    case 'golden':
-                        userStatusElement.classList.add('golden');
-                        userStatusElement.textContent = 'Золотой статус';
-                        break;
-                    case 'platinum':
-                        userStatusElement.classList.add('platinum');
-                        userStatusElement.textContent = 'Платиновый статус';
                         break;
                     default:
-                        userStatusElement.classList.add('bronze');
-                        userStatusElement.textContent = 'Базовый статус';
+                        userStatusElement.classList.add('user-status', `level-${user.status}`);
+                        userStatusElement.innerHTML = `Уровень ${user.status} <span class="status-arrows">${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}</span>`;
                 }
             }
 
@@ -231,21 +223,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const userStatusDiv = document.createElement('div');
                 switch (user.status) {
                     case 'bronze':
-                        userStatusDiv.classList.add('user-status', 'bronze');
+                        userStatusDiv.classList.add('user-status', 'basic');
                         userStatusDiv.textContent = 'Базовый статус';
-                        break;
-                    case 'golden':
-                        userStatusDiv.classList.add('user-status', 'golden');
-                        userStatusDiv.textContent = 'Золотой статус';
-                        break;
-                    case 'platinum':
-                        userStatusDiv.classList.add('user-status', 'platinum');
-                        userStatusDiv.textContent = 'Платиновый статус';
                         break;
                     default:
-                        userStatusDiv.classList.add('user-status', 'bronze');
-                        userStatusDiv.textContent = 'Базовый статус';
-                        break;
+                        userStatusElement.classList.add('user-status', `level-${user.status}`);
+                        userStatusElement.innerHTML = `Уровень ${user.status} <span class="status-arrows">${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}</span>`;
                 }
 
                 nameWrapDiv.appendChild(nameDiv);
