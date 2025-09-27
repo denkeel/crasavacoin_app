@@ -177,9 +177,9 @@ document.addEventListener("DOMContentLoaded", function () {
             function updateUserStatus(status) {
                 // userStatusElement.classList.remove('bronze', 'golden', 'platinum');
                 // статусы
-
-                userStatusElement.classList.add('user-status', `level-${status}`);
-                userStatusElement.textContent = `Уровень ${status} ${Array(status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
+                level = Number(status)
+                userStatusElement.classList.add('user-status', `level-${level}`);
+                userStatusElement.textContent = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
 
             }
 
@@ -218,8 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const userStatusDiv = document.createElement('div');
 
                 // статусы
-                userStatusElement.classList.add('user-status', `level-${user.status}`);
-                userStatusElement.textContent = `Уровень ${user.status} ${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
+                level = Number(user.status)
+                userStatusElement.classList.add('user-status', `level-${level}`);
+                userStatusElement.textContent = `Уровень ${level} ${Array(level).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
 
                 nameWrapDiv.appendChild(nameDiv);
                 nameWrapDiv.appendChild(userStatusDiv);
