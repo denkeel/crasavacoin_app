@@ -32,6 +32,7 @@
 .status-arrows i {
   font-style: italic;
   font-weight: bold;
+  margin-right: -3px;
 }
 
 .container_card {
