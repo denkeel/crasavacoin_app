@@ -176,16 +176,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             function updateUserStatus(status) {
                 // userStatusElement.classList.remove('bronze', 'golden', 'platinum');
+                // статусы
 
-                switch (status) {
-                    case 'basic':
-                        userStatusElement.classList.add('basic');
-                        userStatusElement.textContent = 'Базовый статус';
-                        break;
-                    default:
-                        userStatusElement.classList.add('user-status', `level-${status}`);
-                        userStatusElement.textContent = `Уровень ${status} ${Array(status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
-                }
+                userStatusElement.classList.add('user-status', `level-${status}`);
+                userStatusElement.textContent = `Уровень ${status} ${Array(status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
+
             }
 
             updateUserStatus(userStatus);
@@ -221,15 +216,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 nameDiv.classList.add('name');
                 nameDiv.textContent = user.user_name;
                 const userStatusDiv = document.createElement('div');
-                switch (user.status) {
-                    case 'basic':
-                        userStatusDiv.classList.add('user-status', 'basic');
-                        userStatusDiv.textContent = 'Базовый статус';
-                        break;
-                    default:
-                        userStatusElement.classList.add('user-status', `level-${user.status}`);
-                        userStatusElement.textContent = `Уровень ${user.status} ${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
-                }
+
+                // статусы
+                userStatusElement.classList.add('user-status', `level-${user.status}`);
+                userStatusElement.textContent = `Уровень ${user.status} ${Array(user.status).fill('<i class="fa-solid fa-angle-right" aria-hidden="true"></i>').join('')}`;
 
                 nameWrapDiv.appendChild(nameDiv);
                 nameWrapDiv.appendChild(userStatusDiv);
